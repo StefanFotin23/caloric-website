@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caloric | Instalații HVAC Profesionale în Brăila</title>
+<meta name="description" content="Caloric - instalare, mentenanță și reparații sisteme de climatizare, încălzire și ventilație în Brăila, Romania. Cere o ofertă gratuită.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS (CDN, zero build step) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          ice: {
+            50: '#eff8ff',
+            100: '#dbeffe',
+            200: '#bfe4fe',
+            300: '#93d3fd',
+            400: '#5fb9fa',
+            500: '#3a9df3',
+            600: '#2680e8',
+            700: '#1f68d4',
+            800: '#2054ab',
+            900: '#1e2f4d',
+            950: '#0f1a2e',
+          },
+          ember: {
+            50: '#fff5ed',
+            100: '#ffe7d3',
+            200: '#ffcaa5',
+            300: '#ffa66d',
+            400: '#ff7a33',
+            500: '#fd570f',
+            600: '#ee3d05',
+            700: '#c52a08',
+            800: '#9c220f',
+            900: '#7e1f10',
+          },
+        },
+        boxShadow: {
+          nav: '0 4px 20px -2px rgba(15, 26, 46, 0.08)',
+        },
+      },
+    },
+  };
+</script>
+
+<!-- Font Awesome (icons via CDN) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+
+  /* Hero background image + gradient overlay */
+  .hero-bg {
+    background-image:
+      linear-gradient(180deg, rgba(15,26,46,0.75) 0%, rgba(15,26,46,0.55) 45%, rgba(15,26,46,0.85) 100%),
+      url('https://images.unsplash.com/photo-1642749776312-aa42ce20c9f5?auto=format&fit=crop&w=1600&q=80');
+    /* ^ REPLACE with your own licensed/branded photo whenever you have one — see comment further down in <body> */
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Mobile menu transition */
+  #mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  #mobile-menu.open {
+    max-height: 400px;
+  }
+
+  /* Simple fade/slide-in for scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Facebook placeholder pattern background */
+  .fb-placeholder {
+    background-image: repeating-linear-gradient(45deg, #eff8ff 0px, #eff8ff 10px, #ffffff 10px, #ffffff 20px);
+  }
+</style>
+</head>
+<body class="bg-white text-ice-950 antialiased">
+
+<!-- ============================= -->
+<!-- 1. STICKY NAVIGATION BAR      -->
+<!-- ============================= -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur transition-shadow duration-300">
+  <nav class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-20">
+
+    <!-- Logo -->
+    <a href="#home" class="flex items-center gap-2 shrink-0">
+      <span class="relative flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-ice-600 to-ember-500">
+        <i class="fa-solid fa-snowflake text-white text-sm md:text-base absolute -translate-x-1 -translate-y-0.5"></i>
+        <i class="fa-solid fa-fire text-white text-sm md:text-base absolute translate-x-1 translate-y-0.5"></i>
+      </span>
+      <span class="text-xl md:text-2xl font-extrabold tracking-tight text-ice-950">Caloric</span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-8 font-medium text-ice-900">
+      <li><a href="#home" class="hover:text-ice-600 transition-colors">Acasă</a></li>
+      <li><a href="#services" class="hover:text-ice-600 transition-colors">Servicii</a></li>
+      <li><a href="#portfolio" class="hover:text-ice-600 transition-colors">Portofoliu</a></li>
+      <li><a href="#contact" class="hover:text-ice-600 transition-colors">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="hidden md:inline-flex items-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold px-5 py-2.5 rounded-lg shadow-sm transition-colors">
+      Ofertă Gratuită
+    </a>
+
+    <!-- Hamburger (mobile) -->
+    <button id="menu-btn" aria-label="Deschide meniul" aria-expanded="false" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-ice-950 hover:bg-ice-50 transition-colors">
+      <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-ice-100">
+    <ul class="flex flex-col px-5 py-4 gap-1 font-medium text-ice-900">
+      <li><a href="#home" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Acasă</a></li>
+      <li><a href="#services" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Servicii</a></li>
+      <li><a href="#portfolio" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Portofoliu</a></li>
+      <li><a href="#contact" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Contact</a></li>
+      <li class="pt-2">
+        <a href="#contact" class="mobile-link block text-center bg-ember-500 hover:bg-ember-600 text-white font-semibold px-5 py-3 rounded-lg transition-colors">Ofertă Gratuită</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============================= -->
+<!-- 2. HERO SECTION               -->
+<!-- ============================= -->
+<section id="home" class="hero-bg relative flex items-center min-h-[92vh] pt-16 md:pt-20">
+  <!-- NOTE: to swap the hero photo, replace the url(...) inside .hero-bg in the <style> block above -->
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full">
+    <div class="max-w-2xl">
+      <div class="flex flex-wrap items-center gap-3 mb-6">
+        <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-ice-100 text-sm font-medium px-4 py-1.5 rounded-full backdrop-blur-sm">
+          <i class="fa-solid fa-location-dot text-ember-400"></i>
+          Brăila &amp; împrejurimi
+        </span>
+        <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-ice-100 text-sm font-medium px-4 py-1.5 rounded-full backdrop-blur-sm">
+          <i class="fa-solid fa-award text-ice-300"></i>
+          Din 1995 &middot; Partener Oficial Daikin
+        </span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+        Soluții Profesionale de <span class="text-ice-300">Climatizare</span> și <span class="text-ember-400">Încălzire</span> în Brăila
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-ice-100/90 max-w-xl">
+        Instalare, mentenanță și reparații pentru sisteme rezidențiale și comerciale — intervenție rapidă și lucru garantat.
+      </p>
+      <div class="mt-9 flex flex-col sm:flex-row gap-4">
+        <a href="#contact" class="scroll-link inline-flex items-center justify-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-lg shadow-ember-900/30 transition-all hover:-translate-y-0.5">
+          <i class="fa-solid fa-bolt"></i>
+          Cere Ofertă Gratuită
+        </a>
+        <a href="#services" class="scroll-link inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl backdrop-blur-sm transition-all">
+          Vezi Serviciile
+        </a>
+      </div>
+
+      <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-ice-100/90 text-sm font-medium">
+        <span class="flex items-center gap-2"><i class="fa-solid fa-medal text-ice-300"></i> Peste 30 de ani de experiență</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-certificate text-ember-400"></i> Partener Oficial Daikin</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-star text-ember-400"></i> 4.8/5 pe Google (11 recenzii)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- 3. SERVICES SECTION           -->
+<!-- ============================= -->
+<section id="services" class="py-20 sm:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <span class="text-ember-500 font-semibold uppercase tracking-wider text-sm">Ce Facem</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ice-950">Serviciile Noastre</h2>
+      <p class="mt-4 text-ice-900/70 text-lg">
+        De la montaj și punere în funcțiune, până la mentenanță periodică și reparații de urgență.
+      </p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Card 1: AC Installation & Maintenance -->
+      <div class="reveal group bg-white border border-ice-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="w-14 h-14 rounded-xl bg-ice-50 flex items-center justify-center mb-6 group-hover:bg-ice-100 transition-colors">
+          <i class="fa-solid fa-snowflake text-2xl text-ice-600"></i>
+        </div>
+        <h3 class="text-xl font-bold text-ice-950">Instalare &amp; Mentenanță AC</h3>
+        <p class="mt-3 text-ice-900/70 leading-relaxed">
+          Montăm și întreținem sisteme de climatizare Daikin — suntem partener oficial Daikin din 1995. Igienizare, verificare gaz și punere în funcțiune inclusă.
+        </p>
+      </div>
+
+      <!-- Card 2: Heating & Boiler Repair -->
+      <div class="reveal group bg-white border border-ice-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 80ms;">
+        <div class="w-14 h-14 rounded-xl bg-ember-50 flex items-center justify-center mb-6 group-hover:bg-ember-100 transition-colors">
+          <i class="fa-solid fa-fire text-2xl text-ember-500"></i>
+        </div>
+        <h3 class="text-xl font-bold text-ice-950">Centrale, Cazane &amp; Pompe de Căldură</h3>
+        <p class="mt-3 text-ice-900/70 leading-relaxed">
+          Diagnosticăm și reparăm centrale termice și cazane, indiferent de producător, și instalăm pompe de căldură — alternativa modernă, eficientă energetic, pentru încălzire și apă caldă.
+        </p>
+      </div>
+
+      <!-- Card 3: Ventilation Systems -->
+      <div class="reveal group bg-white border border-ice-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 160ms;">
+        <div class="w-14 h-14 rounded-xl bg-ice-50 flex items-center justify-center mb-6 group-hover:bg-ice-100 transition-colors">
+          <i class="fa-solid fa-wind text-2xl text-ice-600"></i>
+        </div>
+        <h3 class="text-xl font-bold text-ice-950">Ventilație &amp; Climatizare prin Tavan</h3>
+        <p class="mt-3 text-ice-900/70 leading-relaxed">
+          Proiectăm și instalăm sisteme de ventilație și climatizare prin tavan — soluții elegante, care elimină caloriferele vizibile, pentru locuințe și spații comerciale.
+        </p>
+      </div>
+
+    </div>
+
+    <p class="reveal mt-10 text-center text-ice-900/60">
+      Lucrăm și cu refrigerare comercială — vitrine frigorifice, camere frig pentru flori și spații HoReCa.
+      <a href="#contact" class="scroll-link text-ice-600 font-semibold hover:underline">Întreabă-ne despre soluția ta</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- 4. PORTFOLIO / SOCIAL PROOF   -->
+<!-- ============================= -->
+<section id="portfolio" class="py-20 sm:py-28 bg-ice-50/60">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <span class="text-ice-600 font-semibold uppercase tracking-wider text-sm">Portofoliu</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ice-950">Lucrări Recente</h2>
+      <p class="mt-4 text-ice-900/70 text-lg">
+        Vezi cele mai recente proiecte și noutăți direct de pe pagina noastră de Facebook.
+      </p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!--
+        LIVE Facebook Page Plugin — pulls your real, current timeline automatically (no login
+        needed for visitors, no manual updates needed from you). Points at your real page
+        (facebook.com/profile.php?id=100083597462753). Swap width/height or tabs=timeline,events
+        params freely — see developers.facebook.com/docs/plugins/page-plugin.
+      -->
+      <div class="reveal bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm flex items-center justify-center">
+        <iframe
+          title="Pagina de Facebook Caloric"
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100083597462753&tabs=timeline&width=360&height=480&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
+          width="100%" height="480" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0"
+          allowfullscreen="true" loading="lazy"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+
+      <!--
+        Real project type, based on Caloric's own Facebook posts. Replace the placeholder
+        photo block with an actual project photo whenever you have one on hand.
+      -->
+      <div class="reveal bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm" style="transition-delay: 80ms;">
+        <div class="fb-placeholder aspect-[4/3] flex items-center justify-center text-ice-400">
+          <i class="fa-solid fa-image text-3xl"></i>
+          <!-- TODO: replace this div with <img src="your-photo.jpg" class="w-full h-full object-cover" alt="..."> -->
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-ice-950">Pompe de Căldură</h3>
+          <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">
+            Alternativa modernă la centrala clasică: fără gaze, fără poluare, consum redus — pentru încălzire și apă caldă menajeră.
+          </p>
+        </div>
+      </div>
+
+      <!-- Real project type #2, based on Caloric's own Facebook posts -->
+      <div class="reveal bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm" style="transition-delay: 160ms;">
+        <div class="fb-placeholder aspect-[4/3] flex items-center justify-center text-ice-400">
+          <i class="fa-solid fa-image text-3xl"></i>
+          <!-- TODO: replace this div with <img src="your-photo.jpg" class="w-full h-full object-cover" alt="..."> -->
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-ice-950">Climatizare prin Tavan</h3>
+          <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">
+            O soluție elegantă care elimină caloriferele vizibile și îți lasă libertatea să-ți amenajezi casa exact cum îți dorești.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <a href="https://www.facebook.com/people/Caloric/100083597462753/" target="_blank" rel="noopener" class="inline-flex items-center gap-3 bg-[#1877F2] hover:bg-[#1461cf] text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-blue-900/10 transition-colors">
+        <i class="fa-brands fa-facebook text-xl"></i>
+        Urmărește-ne pe Facebook
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- 5. CONTACT / BOOKING SECTION (pinned footer)   -->
+<!-- ============================================= -->
+<section id="contact" class="py-20 sm:py-28 bg-ice-950 text-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <span class="text-ember-400 font-semibold uppercase tracking-wider text-sm">Contact</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold">Cere o Ofertă Gratuită</h2>
+      <p class="mt-4 text-ice-100/70 text-lg">
+        Completează formularul sau scrie-ne direct pe WhatsApp — răspundem rapid.
+      </p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+
+      <!-- LEFT COLUMN: Location & direct contact -->
+      <div class="reveal flex flex-col gap-6">
+
+        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+          <iframe
+            title="Locație Caloric - Bd. Dorobantilor 466, Brăila"
+            src="https://www.google.com/maps?q=Bd.%20Dorobantilor%20466%2C%20Br%C4%83ila%2C%20Romania&output=embed"
+            width="100%"
+            height="320"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <!-- WhatsApp button (real number from Caloric's Facebook page) -->
+        <a href="https://wa.me/40744502692" target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1fbd5a] text-white font-semibold text-lg px-6 py-4 rounded-xl shadow-lg shadow-green-900/20 transition-all hover:-translate-y-0.5">
+          <i class="fa-brands fa-whatsapp text-2xl"></i>
+          Scrie-ne pe WhatsApp
+        </a>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+            <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
+              <i class="fa-solid fa-phone"></i> Telefon
+            </div>
+            <p class="mt-2 text-white/90"><a href="tel:+40744502692" class="hover:text-ice-300 transition-colors">+40 744 502 692</a></p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+            <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
+              <i class="fa-solid fa-envelope"></i> Email
+            </div>
+            <p class="mt-2 text-white/90"><a href="mailto:caloricfrig@yahoo.com" class="hover:text-ice-300 transition-colors">caloricfrig@yahoo.com</a></p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+            <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
+              <i class="fa-solid fa-location-dot"></i> Adresă
+            </div>
+            <p class="mt-2 text-white/90">Bd. Dorobantilor 466, Brăila</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+            <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
+              <i class="fa-solid fa-clock"></i> Program
+            </div>
+            <!-- Hours confirmed via Google Maps business listing -->
+            <p class="mt-2 text-white/90">Luni - Vineri: 08:00 - 17:00<br>Sâmbătă - Duminică: Închis</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Lead generation form -->
+      <div class="reveal bg-white text-ice-950 rounded-2xl p-6 sm:p-8 shadow-2xl" style="transition-delay: 100ms;">
+        <form id="quote-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-5">
+
+          <!-- TODO: replace YOUR_WEB3FORMS_KEY_HERE with your real Web3Forms access key (https://web3forms.com) -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
+          <input type="hidden" name="subject" value="Cerere ofertă nouă - Caloric">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+          <div>
+            <label for="name" class="block text-sm font-semibold text-ice-900 mb-1.5">Nume</label>
+            <input type="text" id="name" name="name" required placeholder="Numele tău"
+                   class="w-full px-4 py-3 rounded-lg border border-ice-200 focus:border-ice-500 focus:ring-2 focus:ring-ice-200 outline-none transition-all">
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-ice-900 mb-1.5">Număr de telefon</label>
+            <input type="tel" id="phone" name="phone" required placeholder="07xx xxx xxx"
+                   class="w-full px-4 py-3 rounded-lg border border-ice-200 focus:border-ice-500 focus:ring-2 focus:ring-ice-200 outline-none transition-all">
+          </div>
+
+          <div>
+            <label for="city" class="block text-sm font-semibold text-ice-900 mb-1.5">Oraș</label>
+            <select id="city" name="city" required
+                    class="w-full px-4 py-3 rounded-lg border border-ice-200 focus:border-ice-500 focus:ring-2 focus:ring-ice-200 outline-none transition-all bg-white">
+              <option value="Braila" selected>Brăila</option>
+              <option value="Galati">Galați</option>
+              <option value="Tulcea">Tulcea</option>
+              <option value="Other">Altul</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="problem" class="block text-sm font-semibold text-ice-900 mb-1.5">Descrierea problemei</label>
+            <textarea id="problem" name="problem" rows="4" required placeholder="Spune-ne pe scurt de ce ai nevoie..."
+                      class="w-full px-4 py-3 rounded-lg border border-ice-200 focus:border-ice-500 focus:ring-2 focus:ring-ice-200 outline-none transition-all resize-none"></textarea>
+          </div>
+
+          <button type="submit"
+                  class="mt-2 inline-flex items-center justify-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold text-lg px-6 py-4 rounded-xl shadow-lg shadow-ember-900/20 transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span id="submit-label">Trimite Cererea</span>
+          </button>
+
+          <p id="form-result" class="text-sm font-medium text-center hidden"></p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Bottom bar -->
+<div class="bg-ice-950 border-t border-white/10 py-6">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-ice-100/60">
+    <p>&copy; <span id="year"></span> Caloric. Toate drepturile rezervate.</p>
+    <p>Brăila, România</p>
+  </div>
+</div>
+
+<!-- ============================= -->
+<!-- VANILLA JS                    -->
+<!-- ============================= -->
+<script>
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Sticky nav shadow on scroll
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => {
+    if (window.scrollY > 8) {
+      navbar.classList.add('shadow-nav');
+    } else {
+      navbar.classList.remove('shadow-nav');
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile hamburger menu
+  const menuBtn = document.getElementById('menu-btn');
+  const menuIcon = document.getElementById('menu-icon');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuIcon.classList.remove('fa-xmark');
+    menuIcon.classList.add('fa-bars');
+  }
+
+  function toggleMobileMenu() {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    menuIcon.classList.toggle('fa-bars', !isOpen);
+    menuIcon.classList.toggle('fa-xmark', isOpen);
+  }
+
+  menuBtn.addEventListener('click', toggleMobileMenu);
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Smooth scroll for CTA / nav links (native `scroll-behavior: smooth` on <html>
+  // already handles anchor clicks; this just accounts for the fixed navbar height).
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.length <= 1) return;
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      e.preventDefault();
+      const navHeight = navbar.offsetHeight;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  // Scroll-reveal animation
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Lead form: submit via fetch to Web3Forms so we can show an inline success/error
+  // message without leaving the page. Falls back to a normal POST if fetch fails.
+  const quoteForm = document.getElementById('quote-form');
+  const formResult = document.getElementById('form-result');
+  const submitBtn = quoteForm.querySelector('button[type="submit"]');
+  const submitLabel = document.getElementById('submit-label');
+
+  quoteForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Se trimite...';
+    formResult.classList.add('hidden');
+
+    const formData = new FormData(quoteForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    fetch(quoteForm.action, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then(res => res.json())
+      .then(data => {
+        formResult.classList.remove('hidden');
+        if (data.success) {
+          formResult.textContent = 'Mulțumim! Cererea ta a fost trimisă. Te contactăm în curând.';
+          formResult.className = 'text-sm font-medium text-center text-green-600';
+          quoteForm.reset();
+        } else {
+          formResult.textContent = 'A apărut o eroare. Te rugăm să încerci din nou sau să ne scrii pe WhatsApp.';
+          formResult.className = 'text-sm font-medium text-center text-red-600';
+        }
+      })
+      .catch(() => {
+        formResult.classList.remove('hidden');
+        formResult.textContent = 'A apărut o eroare de conexiune. Te rugăm să încerci din nou sau să ne scrii pe WhatsApp.';
+        formResult.className = 'text-sm font-medium text-center text-red-600';
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitLabel.textContent = 'Trimite Cererea';
+      });
+  });
+</script>
+
+</body>
+</html>
