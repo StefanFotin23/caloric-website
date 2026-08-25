@@ -1,0 +1,22 @@
+# Secrets - never commit these
+github-token.txt
+*token*.txt
+*.pem
+*.key
+.env
+.env.*
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# Backups / temp files
+*.bak
+*.tmp
+*~
