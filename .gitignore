@@ -1,10 +1,18 @@
-# Secrets - never commit these
+# Local-only stuff: secrets, tokens, raw/unprocessed source files —
+# nothing in here should ever reach the repo. Keep dropping anything
+# git-sensitive in this one folder instead of the project root.
+local-only/
+
+# Secrets - never commit these (kept as a second line of defense, in
+# case a secret-looking file ever lands outside local-only/ by mistake)
 github-token.txt
 *token*.txt
 *.pem
 *.key
 .env
 .env.*
+env-local-notes.txt
+*secrets*
 
 # OS junk
 .DS_Store

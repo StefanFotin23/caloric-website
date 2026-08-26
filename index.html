@@ -6,6 +6,9 @@
 <title>Caloric | Instalații HVAC Profesionale în Brăila</title>
 <meta name="description" content="Caloric - instalare, mentenanță și reparații sisteme de climatizare, încălzire și ventilație în Brăila, Romania. Cere o ofertă gratuită.">
 
+<!-- Favicon: real Caloric logo -->
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,12 +110,8 @@
 <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur transition-shadow duration-300">
   <nav class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-20">
 
-    <!-- Logo -->
     <a href="#home" class="flex items-center gap-2 shrink-0">
-      <span class="relative flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-ice-600 to-ember-500">
-        <i class="fa-solid fa-snowflake text-white text-sm md:text-base absolute -translate-x-1 -translate-y-0.5"></i>
-        <i class="fa-solid fa-fire text-white text-sm md:text-base absolute translate-x-1 translate-y-0.5"></i>
-      </span>
+      <img src="assets/logo-caloric.png" alt="Sigla Caloric" class="w-9 h-9 md:w-10 md:h-10 shrink-0 object-contain">
       <span class="text-xl md:text-2xl font-extrabold tracking-tight text-ice-950">Caloric</span>
     </a>
 
@@ -120,6 +119,7 @@
     <ul class="hidden md:flex items-center gap-8 font-medium text-ice-900">
       <li><a href="#home" class="hover:text-ice-600 transition-colors">Acasă</a></li>
       <li><a href="#services" class="hover:text-ice-600 transition-colors">Servicii</a></li>
+      <li><a href="#parteneri" class="hover:text-ice-600 transition-colors">Parteneri</a></li>
       <li><a href="#portfolio" class="hover:text-ice-600 transition-colors">Portofoliu</a></li>
       <li><a href="#contact" class="hover:text-ice-600 transition-colors">Contact</a></li>
     </ul>
@@ -139,6 +139,7 @@
     <ul class="flex flex-col px-5 py-4 gap-1 font-medium text-ice-900">
       <li><a href="#home" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Acasă</a></li>
       <li><a href="#services" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Servicii</a></li>
+      <li><a href="#parteneri" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Parteneri</a></li>
       <li><a href="#portfolio" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Portofoliu</a></li>
       <li><a href="#contact" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Contact</a></li>
       <li class="pt-2">
@@ -148,10 +149,27 @@
   </div>
 </header>
 
+<!-- ============================================================ -->
+<!-- Secondary sticky bar — product category quick-links (desktop) -->
+<!-- Hidden on mobile to avoid overlapping the hamburger dropdown; -->
+<!-- mobile visitors reach categories by scrolling the Servicii    -->
+<!-- section instead.                                              -->
+<!-- ============================================================ -->
+<div id="subnav" class="hidden md:block fixed top-20 left-0 right-0 z-40 bg-ice-950 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-8 flex items-center gap-7 h-11 overflow-x-auto text-sm font-medium text-ice-100/80 whitespace-nowrap">
+    <span class="text-ice-100/40 uppercase tracking-wider text-xs shrink-0">Servicii:</span>
+    <a href="#cat-climatizare" class="scroll-link hover:text-white transition-colors shrink-0">Climatizare</a>
+    <a href="#cat-incalzire" class="scroll-link hover:text-white transition-colors shrink-0">Încălzire &amp; Pompe de Căldură</a>
+    <a href="#cat-ventilatie" class="scroll-link hover:text-white transition-colors shrink-0">Ventilație</a>
+    <a href="#cat-refrigerare" class="scroll-link hover:text-white transition-colors shrink-0">Refrigerare &amp; Industrial</a>
+    <a href="#parteneri" class="scroll-link hover:text-white transition-colors shrink-0">Parteneri</a>
+  </div>
+</div>
+
 <!-- ============================= -->
 <!-- 2. HERO SECTION               -->
 <!-- ============================= -->
-<section id="home" class="hero-bg relative flex items-center min-h-[92vh] pt-16 md:pt-20">
+<section id="home" class="hero-bg relative flex items-center min-h-[92vh] pt-16 md:pt-32">
   <!-- NOTE: to swap the hero photo, replace the url(...) inside .hero-bg in the <style> block above -->
   <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full">
     <div class="max-w-2xl">
@@ -162,7 +180,7 @@
         </span>
         <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-ice-100 text-sm font-medium px-4 py-1.5 rounded-full backdrop-blur-sm">
           <i class="fa-solid fa-award text-ice-300"></i>
-          Din 1995 &middot; Partener Oficial Daikin
+          Din 1995 &middot; Peste 30 de Ani de Experiență
         </span>
       </div>
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
@@ -203,47 +221,228 @@
       </p>
     </div>
 
-    <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
-
-      <!-- Card 1: AC Installation & Maintenance -->
-      <div class="reveal group bg-white border border-ice-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-        <div class="w-14 h-14 rounded-xl bg-ice-50 flex items-center justify-center mb-6 group-hover:bg-ice-100 transition-colors">
-          <i class="fa-solid fa-snowflake text-2xl text-ice-600"></i>
+    <!-- ===== Climatizare ===== -->
+    <div id="cat-climatizare" class="mt-16 scroll-mt-32">
+      <div class="reveal flex items-center gap-3 mb-7">
+        <div class="w-10 h-10 rounded-lg bg-ice-50 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-snowflake text-ice-600"></i>
         </div>
-        <h3 class="text-xl font-bold text-ice-950">Instalare &amp; Mentenanță AC</h3>
-        <p class="mt-3 text-ice-900/70 leading-relaxed">
-          Montăm și întreținem sisteme de climatizare Daikin — suntem partener oficial Daikin din 1995. Igienizare, verificare gaz și punere în funcțiune inclusă.
-        </p>
+        <h3 class="text-xl sm:text-2xl font-bold text-ice-950">Climatizare</h3>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img src="https://images.unsplash.com/photo-1718203862467-c33159fdc504?auto=format&fit=crop&w=600&q=80" alt="Aparat de aer condiționat tip split montat pe perete" class="w-full aspect-[4/3] object-cover">
+          <div class="p-5">
+            <h4 class="font-bold text-ice-950">AC Split (Perete)</h4>
+            <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Soluția clasică pentru o cameră sau un apartament — instalare rapidă, eficiență ridicată.</p>
+          </div>
+        </div>
+
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 40ms;">
+          <img src="https://images.unsplash.com/photo-1757219525975-03b5984bc6e8?auto=format&fit=crop&w=600&q=80" alt="Unitate exterioară multi-split" class="w-full aspect-[4/3] object-cover">
+          <div class="p-5">
+            <h4 class="font-bold text-ice-950">Sisteme Multi-Split</h4>
+            <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">O singură unitate exterioară pentru mai multe camere — ideal pentru case și apartamente mai mari.</p>
+          </div>
+        </div>
+
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 80ms;">
+          <img src="https://images.unsplash.com/photo-1768677432858-b9a8608dd849?auto=format&fit=crop&w=600&q=80" alt="Unități de climatizare pe acoperișul unei clădiri comerciale" class="w-full aspect-[4/3] object-cover">
+          <div class="p-5">
+            <h4 class="font-bold text-ice-950">Sisteme VRV / VRF</h4>
+            <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Climatizare centralizată pentru clădiri de birouri, hoteluri și spații comerciale mari.</p>
+          </div>
+        </div>
+
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 120ms;">
+          <img src="https://images.unsplash.com/photo-1615309662243-70f6df917b59?auto=format&fit=crop&w=600&q=80" alt="Instalație de climatizare tip duct ascunsă în tavan fals" class="w-full aspect-[4/3] object-cover">
+          <div class="p-5">
+            <h4 class="font-bold text-ice-950">Unități Tip Duct</h4>
+            <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Ascunse complet în tavanul fals — climatizare invizibilă, fără unități aparente pe pereți.</p>
+          </div>
+        </div>
+
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 160ms;">
+          <img src="https://images.unsplash.com/photo-1579487785973-74d2ca7abdd5?auto=format&fit=crop&w=600&q=80" alt="Unitate de climatizare tip casetă montată în tavan, spațiu de birouri" class="w-full aspect-[4/3] object-cover">
+          <div class="p-5">
+            <h4 class="font-bold text-ice-950">Unități Tip Casetă</h4>
+            <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Montate în tavan, cu distribuție uniformă a aerului — potrivite pentru birouri și magazine.</p>
+          </div>
+        </div>
+
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 200ms;">
+          <img src="https://images.unsplash.com/photo-1436473849883-bb3464c23e93?auto=format&fit=crop&w=600&q=80" alt="Unitate de climatizare tip consolă/parapet lângă o fereastră" class="w-full aspect-[4/3] object-cover">
+          <div class="p-5">
+            <h4 class="font-bold text-ice-950">Unități Consolă / Parapet</h4>
+            <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Montaj jos, sub fereastră — o alternativă discretă acolo unde montajul pe perete înalt nu e posibil.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== Încălzire & Pompe de Căldură ===== -->
+    <div id="cat-incalzire" class="mt-16 scroll-mt-32">
+      <div class="reveal flex items-center gap-3 mb-7">
+        <div class="w-10 h-10 rounded-lg bg-ember-50 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-fire text-ember-500"></i>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold text-ice-950">Încălzire &amp; Pompe de Căldură</h3>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img src="https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&fit=crop&w=600&q=80" alt="Unitate exterioară de pompă de căldură lângă o casă" class="w-full aspect-[4/3] object-cover">
+          <div class="p-5">
+            <h4 class="font-bold text-ice-950">Pompe de Căldură Aer-Apă</h4>
+            <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Încălzire, răcire și apă caldă dintr-un singur sistem — fără gaz, fără poluare, consum redus.</p>
+          </div>
+        </div>
+
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 40ms;">
+          <img src="https://images.unsplash.com/photo-1594233078955-e1f73a02ebb2?auto=format&fit=crop&w=600&q=80" alt="Boiler pentru apă caldă menajeră" class="w-full aspect-[4/3] object-cover">
+          <div class="p-5">
+            <h4 class="font-bold text-ice-950">Apă Caldă Menajeră</h4>
+            <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Boilere cu pompă de căldură — apă caldă tot anul, cu un consum electric de câteva ori mai mic.</p>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Card 2: Heating & Boiler Repair -->
-      <div class="reveal group bg-white border border-ice-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 80ms;">
-        <div class="w-14 h-14 rounded-xl bg-ember-50 flex items-center justify-center mb-6 group-hover:bg-ember-100 transition-colors">
-          <i class="fa-solid fa-fire text-2xl text-ember-500"></i>
+      <!-- Highlight: thermodynamic-engineering angle — electricity-only, efficiency, solar synergy -->
+      <div class="reveal mt-6 bg-gradient-to-br from-ice-950 to-ice-800 rounded-2xl p-7 sm:p-8 text-white" style="transition-delay: 80ms;">
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-bolt text-ice-200"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg">De Ce Pompele de Căldură, din Perspectiva Noastră de Ingineri</h4>
+            <p class="mt-2 text-ice-100/80 leading-relaxed max-w-3xl">
+              Suntem o echipă de inginerie mecanică &amp; termodinamică, nu doar montatori — de-asta recomandăm pompe de căldură în locul soluțiilor clasice pe combustibil. Consumă exclusiv energie electrică, iar la un randament (COP) tipic de 3-5, livrează 3-5&nbsp;kWh de căldură pentru fiecare 1&nbsp;kWh consumat. Fiind electrice, se cuplează foarte bine cu panouri fotovoltaice — nu vindem noi panourile, dar lucrăm cu parteneri pe care îi putem recomanda dacă vrei să acoperi consumul din surse proprii.
+            </p>
+          </div>
         </div>
-        <h3 class="text-xl font-bold text-ice-950">Centrale, Cazane &amp; Pompe de Căldură</h3>
-        <p class="mt-3 text-ice-900/70 leading-relaxed">
-          Diagnosticăm și reparăm centrale termice și cazane, indiferent de producător, și instalăm pompe de căldură — alternativa modernă, eficientă energetic, pentru încălzire și apă caldă.
-        </p>
       </div>
 
-      <!-- Card 3: Ventilation Systems -->
-      <div class="reveal group bg-white border border-ice-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 160ms;">
-        <div class="w-14 h-14 rounded-xl bg-ice-50 flex items-center justify-center mb-6 group-hover:bg-ice-100 transition-colors">
-          <i class="fa-solid fa-wind text-2xl text-ice-600"></i>
+      <p class="reveal mt-5 text-sm text-ice-900/50">
+        Facem și intervenții la centrale termice și cazane clasice, la cerere — dar nu este direcția noastră principală; ne concentrăm pe soluții de încălzire, răcire și ventilație pe bază de pompă de căldură.
+      </p>
+    </div>
+
+    <!-- ===== Ventilație ===== -->
+    <div id="cat-ventilatie" class="mt-16 scroll-mt-32">
+      <div class="reveal flex items-center gap-3 mb-7">
+        <div class="w-10 h-10 rounded-lg bg-ice-50 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-wind text-ice-600"></i>
         </div>
-        <h3 class="text-xl font-bold text-ice-950">Ventilație &amp; Climatizare prin Tavan</h3>
-        <p class="mt-3 text-ice-900/70 leading-relaxed">
-          Proiectăm și instalăm sisteme de ventilație și climatizare prin tavan — soluții elegante, care elimină caloriferele vizibile, pentru locuințe și spații comerciale.
-        </p>
+        <h3 class="text-xl sm:text-2xl font-bold text-ice-950">Ventilație</h3>
       </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img src="https://images.unsplash.com/photo-1708705261211-b2a244a811dc?auto=format&fit=crop&w=600&q=80" alt="Ducte de ventilație montate pe tavanul unei clădiri" class="w-full aspect-[4/3] object-cover">
+          <div class="p-5">
+            <h4 class="font-bold text-ice-950">Ventilație cu Recuperare de Căldură</h4>
+            <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Aer proaspăt permanent, fără să pierzi căldura din casă — ideal pentru locuințe eficiente energetic.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== Refrigerare Comercială & Industrial ===== -->
+    <div id="cat-refrigerare" class="mt-16 scroll-mt-32">
+      <div class="reveal flex items-center gap-3 mb-7">
+        <div class="w-10 h-10 rounded-lg bg-ember-50 flex items-center justify-center shrink-0">
+          <i class="fa-solid fa-industry text-ember-500"></i>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold text-ice-950">Refrigerare Comercială &amp; Industrial</h3>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <img src="https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?auto=format&fit=crop&w=600&q=80" alt="Chillere și unități industriale pe acoperișul unei clădiri" class="w-full aspect-[4/3] object-cover">
+          <div class="p-5">
+            <h4 class="font-bold text-ice-950">Sisteme Industriale &amp; Chillere</h4>
+            <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Soluții de climatizare și răcire pentru hale, spații de producție și clădiri mari.</p>
+          </div>
+        </div>
+
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 40ms;">
+          <img src="https://images.unsplash.com/photo-1742516057446-306dc9ba1b00?auto=format&fit=crop&w=600&q=80" alt="Vitrină frigorifică comercială tip supermarket" class="w-full aspect-[4/3] object-cover">
+          <div class="p-5">
+            <h4 class="font-bold text-ice-950">Refrigerare Comercială</h4>
+            <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Vitrine frigorifice, camere frig pentru flori și spații HoReCa — soluții personalizate.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- 3b. PARTENERI — Daikin & Value spotlight,    -->
+<!--     plus a lighter strip of secondary brands -->
+<!-- ============================================= -->
+<section id="parteneri" class="py-20 sm:py-28 bg-ice-50/60 scroll-mt-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <span class="text-ember-500 font-semibold uppercase tracking-wider text-sm">Parteneri</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ice-950">Parteneriate care Contează</h2>
+      <p class="mt-4 text-ice-900/70 text-lg">
+        Lucrăm direct cu producători și distribuitori de top, ca să livrăm echipamente originale și service garantat.
+      </p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Daikin card -->
+      <a href="daikin.html" class="reveal group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-ice-100">
+        <div class="h-40 bg-ice-50 border-b-4 border-ice-600 flex items-center justify-center px-8">
+          <img src="assets/logo-daikin.png" alt="Sigla Daikin Business Partner" class="max-h-20 max-w-full object-contain">
+        </div>
+        <div class="p-7">
+          <h3 class="text-xl font-bold text-ice-950">Partener Oficial Daikin</h3>
+          <p class="mt-2 text-ice-900/70 leading-relaxed">
+            Instalăm și service-uim echipamente Daikin originale — climatizare, pompe de căldură și sisteme VRV, cu garanție de producător.
+          </p>
+          <span class="mt-4 inline-flex items-center gap-2 text-ice-600 font-semibold group-hover:gap-3 transition-all">
+            Vezi pagina Daikin <i class="fa-solid fa-arrow-right text-sm"></i>
+          </span>
+        </div>
+      </a>
+
+      <!-- Value card -->
+      <a href="value.html" class="reveal group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-ice-100" style="transition-delay: 80ms;">
+        <div class="h-40 bg-ice-50 border-b-4 border-ember-500 flex items-center justify-center px-8">
+          <img src="assets/logo-value.png" alt="Sigla Value" class="max-h-16 max-w-full object-contain">
+        </div>
+        <div class="p-7">
+          <h3 class="text-xl font-bold text-ice-950">Distribuitor Oficial Value</h3>
+          <p class="mt-2 text-ice-900/70 leading-relaxed">
+            Distribuitor oficial Value pentru Brăila și Galați — acces direct la stoc și prețuri competitive pentru clienții noștri.
+          </p>
+          <span class="mt-4 inline-flex items-center gap-2 text-ember-600 font-semibold group-hover:gap-3 transition-all">
+            Vezi pagina Value <i class="fa-solid fa-arrow-right text-sm"></i>
+          </span>
+        </div>
+      </a>
 
     </div>
 
-    <p class="reveal mt-10 text-center text-ice-900/60">
-      Lucrăm și cu refrigerare comercială — vitrine frigorifice, camere frig pentru flori și spații HoReCa.
-      <a href="#contact" class="scroll-link text-ice-600 font-semibold hover:underline">Întreabă-ne despre soluția ta</a>.
-    </p>
+    <!-- Secondary partners — understated strip, doesn't compete with Daikin/Value above -->
+    <div class="reveal mt-14 pt-10 border-t border-ice-200/70 text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-ice-900/50">Lucrăm și cu</p>
+      <!-- TODO: replace each placeholder pill below with the real partner logo (img, ~120x40px) once Stefan provides them -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
+        <span class="px-6 py-3 rounded-lg bg-white border border-ice-100 text-ice-900/60 font-semibold text-sm">Mitsubishi Electric</span>
+        <span class="px-6 py-3 rounded-lg bg-white border border-ice-100 text-ice-900/60 font-semibold text-sm">Gree</span>
+        <span class="px-6 py-3 rounded-lg bg-white border border-ice-100 text-ice-900/60 font-semibold text-sm">Platinium</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -391,8 +590,7 @@
       <div class="reveal bg-white text-ice-950 rounded-2xl p-6 sm:p-8 shadow-2xl" style="transition-delay: 100ms;">
         <form id="quote-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-5">
 
-          <!-- TODO: replace YOUR_WEB3FORMS_KEY_HERE with your real Web3Forms access key (https://web3forms.com) -->
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY_HERE">
+          <input type="hidden" name="access_key" value="b88e84eb-a1e4-42fc-b390-1f04e5352c5d">
           <input type="hidden" name="subject" value="Cerere ofertă nouă - Caloric">
           <input type="checkbox" name="botcheck" class="hidden" style="display:none">
 
@@ -424,6 +622,8 @@
             <textarea id="problem" name="problem" rows="4" required placeholder="Spune-ne pe scurt de ce ai nevoie..."
                       class="w-full px-4 py-3 rounded-lg border border-ice-200 focus:border-ice-500 focus:ring-2 focus:ring-ice-200 outline-none transition-all resize-none"></textarea>
           </div>
+
+          <div class="h-captcha" data-captcha="true"></div>
 
           <button type="submit"
                   class="mt-2 inline-flex items-center justify-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold text-lg px-6 py-4 rounded-xl shadow-lg shadow-ember-900/20 transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0">
@@ -499,8 +699,10 @@
       const target = document.querySelector(targetId);
       if (!target) return;
       e.preventDefault();
-      const navHeight = navbar.offsetHeight;
-      const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      const subnav = document.getElementById('subnav');
+      const subnavHeight = (subnav && subnav.offsetParent !== null) ? subnav.offsetHeight : 0;
+      const navHeight = navbar.offsetHeight + subnavHeight;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
@@ -526,6 +728,17 @@
 
   quoteForm.addEventListener('submit', function (e) {
     e.preventDefault();
+
+    // If hCaptcha is enabled on this form in the Web3Forms dashboard, block
+    // submission client-side until it's solved (Web3Forms also verifies this
+    // server-side — this check just avoids a wasted round-trip).
+    const captchaField = quoteForm.querySelector('[name="h-captcha-response"]');
+    if (captchaField && !captchaField.value) {
+      formResult.classList.remove('hidden');
+      formResult.textContent = 'Te rugăm să confirmi căsuța de securitate (captcha) înainte de a trimite.';
+      formResult.className = 'text-sm font-medium text-center text-red-600';
+      return;
+    }
 
     submitBtn.disabled = true;
     submitLabel.textContent = 'Se trimite...';
@@ -563,5 +776,6 @@
   });
 </script>
 
+<script src="https://web3forms.com/client/script.js" async defer></script>
 </body>
 </html>
