@@ -96,6 +96,29 @@
     transform: translateY(0);
   }
 
+  /* Secondary-partner logo marquee — continuous left-to-right scroll, CSS-only */
+  .logo-marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  }
+  .logo-marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: logo-marquee-scroll 22s linear infinite;
+  }
+  .logo-marquee:hover .logo-marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes logo-marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee-track { animation: none; }
+  }
+
 </style>
 </head>
 <body class="bg-white text-ice-950 antialiased">
@@ -227,51 +250,57 @@
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 product-card cursor-pointer" data-modal-title="AC Split (Perete)" data-modal-text="Soluția clasică pentru o cameră sau un apartament: montaj rapid, fără renovări, eficiență ridicată la răcire și încălzire. În poză: Daikin Perfera W, unul dintre modelele pe care le montăm cel mai des. Îl controlezi complet din aplicația de telefon — temperatură, program, moduri — de oriunde ești." data-modal-images='[{"src": "assets/daikin-perfera-w.jpg", "alt": "Aparat de aer condiționat Daikin Perfera W, montat pe perete într-o cameră de zi", "tag": null}]'>
           <img src="assets/daikin-perfera-w.jpg" alt="Aparat de aer condiționat Daikin Perfera W, montat pe perete" class="w-full aspect-[4/3] object-cover">
           <div class="p-5">
             <h4 class="font-bold text-ice-950">AC Split (Perete)</h4>
             <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Face cald iarna, răcoare vara — o singură investiție, montaj rapid, fără renovări. Controlezi totul de pe telefon.</p>
+            <p class="mt-3 text-xs font-semibold text-ice-600 group-hover:text-ice-700 inline-flex items-center gap-1.5">Vezi detalii <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
           </div>
         </div>
 
-        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 40ms;">
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 product-card cursor-pointer" style="transition-delay: 40ms;" data-modal-title="Sisteme Multi-Split" data-modal-text="O singură unitate exterioară alimentează mai multe unități interioare, fiecare cu temperatura ei — ideal când vrei să climatizezi 2-5 camere fără să umpli fațada casei de unități exterioare. Potrivit pentru case și apartamente mai mari." data-modal-images='[{"src": "https://images.unsplash.com/photo-1757219525975-03b5984bc6e8?auto=format&fit=crop&w=1200&q=80", "alt": "Unitate exterioară multi-split", "tag": null}]'>
           <img src="https://images.unsplash.com/photo-1757219525975-03b5984bc6e8?auto=format&fit=crop&w=600&q=80" alt="Unitate exterioară multi-split" class="w-full aspect-[4/3] object-cover">
           <div class="p-5">
             <h4 class="font-bold text-ice-950">Sisteme Multi-Split</h4>
             <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">O singură unitate exterioară pentru mai multe camere — ideal pentru case și apartamente mai mari.</p>
+            <p class="mt-3 text-xs font-semibold text-ice-600 group-hover:text-ice-700 inline-flex items-center gap-1.5">Vezi detalii <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
           </div>
         </div>
 
-        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 80ms;">
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 product-card cursor-pointer" style="transition-delay: 80ms;" data-modal-title="Sisteme VRV / VRF" data-modal-text="Climatizare centralizată pentru clădiri de birouri, hoteluri și spații comerciale — o singură rețea de agent frigorific poate deservi zeci de unități interioare, fiecare controlată independent. Poze și date tehnice complete, în curând." data-modal-images='[{"src": "https://images.unsplash.com/photo-1768677432858-b9a8608dd849?auto=format&fit=crop&w=1200&q=80", "alt": "Unități de climatizare pe acoperișul unei clădiri comerciale", "tag": null}]'>
           <img src="https://images.unsplash.com/photo-1768677432858-b9a8608dd849?auto=format&fit=crop&w=600&q=80" alt="Unități de climatizare pe acoperișul unei clădiri comerciale" class="w-full aspect-[4/3] object-cover">
           <div class="p-5">
             <h4 class="font-bold text-ice-950">Sisteme VRV / VRF</h4>
             <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Climatizare centralizată pentru clădiri de birouri, hoteluri și spații comerciale.</p>
+            <p class="mt-3 text-xs font-semibold text-ice-600 group-hover:text-ice-700 inline-flex items-center gap-1.5">Vezi detalii <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
           </div>
         </div>
 
-        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 120ms;">
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 product-card cursor-pointer" style="transition-delay: 120ms;" data-modal-title="Unități Tip Duct" data-modal-text="Unitatea stă complet ascunsă în tavanul fals — se văd doar grilele de refulare, discret integrate în tavan. Dimensiuni compacte, potrivite în spații înguste, cu opțiune de autocurățare pentru eficiență și fiabilitate pe termen lung." data-modal-images='[{"src": "assets/daikin-duct-ascuns.jpg", "alt": "Unitate Daikin necarcasată, de tip duct, pentru montare ascunsă în tavan fals", "tag": null}]'>
           <img src="assets/daikin-duct-ascuns.jpg" alt="Unitate Daikin necarcasată, de tip duct, pentru montare ascunsă în tavan fals" class="w-full aspect-[4/3] object-cover">
           <div class="p-5">
             <h4 class="font-bold text-ice-950">Unități Tip Duct</h4>
             <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Ascunse complet în tavanul fals — climatizare invizibilă, fără unități aparente pe pereți.</p>
+            <p class="mt-3 text-xs font-semibold text-ice-600 group-hover:text-ice-700 inline-flex items-center gap-1.5">Vezi detalii <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
           </div>
         </div>
 
-        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 160ms;">
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 product-card cursor-pointer" style="transition-delay: 160ms;" data-modal-title="Unități Tip Casetă" data-modal-text="Montate la nivelul tavanului, cu jet de aer pe 360° pentru o distribuție uniformă a temperaturii în toată încăperea — soluția potrivită pentru birouri, magazine și spații comerciale cu tavan fals." data-modal-images='[{"src": "assets/daikin-caseta-tavan.jpg", "alt": "Unitate de climatizare Daikin tip casetă, montată vizibil în tavanul unui spațiu comercial", "tag": null}]'>
           <img src="assets/daikin-caseta-tavan.jpg" alt="Unitate de climatizare Daikin tip casetă, montată vizibil în tavanul unui spațiu comercial" class="w-full aspect-[4/3] object-cover">
           <div class="p-5">
             <h4 class="font-bold text-ice-950">Unități Tip Casetă</h4>
             <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Montate în tavan, cu distribuție uniformă a aerului — potrivite pentru birouri și magazine.</p>
+            <p class="mt-3 text-xs font-semibold text-ice-600 group-hover:text-ice-700 inline-flex items-center gap-1.5">Vezi detalii <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
           </div>
         </div>
 
-        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 200ms;">
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 product-card cursor-pointer" style="transition-delay: 200ms;" data-modal-title="Unități Consolă / Parapet" data-modal-text="Montaj jos, la nivelul pardoselii sau sub fereastră — alternativa discretă acolo unde montajul pe perete înalt nu e posibil sau nu arată bine. În poză: Daikin Perfera F, cu încălzire accelerată și încălzire a pardoselii." data-modal-images='[{"src": "assets/daikin-perfera-f-console.jpg", "alt": "Unitate de interior Daikin Perfera F, montată la nivelul pardoselii într-o cameră de zi", "tag": null}]'>
           <img src="assets/daikin-perfera-f-console.jpg" alt="Unitate de interior Daikin Perfera F, montată la nivelul pardoselii" class="w-full aspect-[4/3] object-cover">
           <div class="p-5">
             <h4 class="font-bold text-ice-950">Unități Consolă / Parapet</h4>
             <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Montaj jos, sub fereastră — o alternativă discretă acolo unde montajul pe perete înalt nu e posibil.</p>
+            <p class="mt-3 text-xs font-semibold text-ice-600 group-hover:text-ice-700 inline-flex items-center gap-1.5">Vezi detalii <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
           </div>
         </div>
 
@@ -288,19 +317,21 @@
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
-        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 product-card cursor-pointer" data-modal-title="Pompe de Căldură Aer-Apă" data-modal-text="Încălzire, răcire și apă caldă menajeră dintr-un singur sistem, conectat la caloriferele sau încălzirea în pardoseală pe care le ai deja. Consumă exclusiv energie electrică — fără gaz, fără poluare, consum redus." data-modal-images='[{"src": "https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&fit=crop&w=1200&q=80", "alt": "Unitate exterioară de pompă de căldură lângă o casă", "tag": null}]'>
           <img src="https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&fit=crop&w=600&q=80" alt="Unitate exterioară de pompă de căldură lângă o casă" class="w-full aspect-[4/3] object-cover">
           <div class="p-5">
             <h4 class="font-bold text-ice-950">Pompe de Căldură Aer-Apă</h4>
             <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Încălzire, răcire și apă caldă dintr-un singur sistem — fără gaz, fără poluare, consum redus.</p>
+            <p class="mt-3 text-xs font-semibold text-ice-600 group-hover:text-ice-700 inline-flex items-center gap-1.5">Vezi detalii <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
           </div>
         </div>
 
-        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 40ms;">
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 product-card cursor-pointer" style="transition-delay: 40ms;" data-modal-title="Apă Caldă Menajeră" data-modal-text="Boiler cu pompă de căldură: apă caldă tot anul, cu un consum electric de câteva ori mai mic decât o rezistență electrică clasică. În poză: Daikin Altherma M HW, unitatea monobloc dedicată producerii de apă caldă menajeră." data-modal-images='[{"src": "assets/daikin-altherma-m-hw.jpg", "alt": "Daikin Altherma M HW, pompă de căldură monobloc pentru apă caldă menajeră", "tag": null}]'>
           <img src="assets/daikin-altherma-m-hw.jpg" alt="Daikin Altherma M HW, pompă de căldură monobloc pentru apă caldă menajeră" class="w-full aspect-[4/3] object-cover">
           <div class="p-5">
             <h4 class="font-bold text-ice-950">Apă Caldă Menajeră</h4>
             <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Boilere cu pompă de căldură — apă caldă tot anul, cu un consum electric de câteva ori mai mic.</p>
+            <p class="mt-3 text-xs font-semibold text-ice-600 group-hover:text-ice-700 inline-flex items-center gap-1.5">Vezi detalii <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
           </div>
         </div>
 
@@ -339,11 +370,12 @@
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 product-card cursor-pointer" data-modal-title="Ventilație cu Recuperare de Căldură" data-modal-text="Aer proaspăt permanent în casă, fără să pierzi căldura pe care ai plătit deja s-o produci — sistemul recuperează căldura din aerul evacuat și o transferă aerului proaspăt care intră. Ideal pentru locuințe noi sau eficiente energetic." data-modal-images='[{"src": "https://images.unsplash.com/photo-1708705261211-b2a244a811dc?auto=format&fit=crop&w=1200&q=80", "alt": "Ducte de ventilație montate pe tavanul unei clădiri", "tag": null}]'>
           <img src="https://images.unsplash.com/photo-1708705261211-b2a244a811dc?auto=format&fit=crop&w=600&q=80" alt="Ducte de ventilație montate pe tavanul unei clădiri" class="w-full aspect-[4/3] object-cover">
           <div class="p-5">
             <h4 class="font-bold text-ice-950">Ventilație cu Recuperare de Căldură</h4>
             <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Aer proaspăt permanent, fără să pierzi căldura din casă — ideal pentru locuințe eficiente energetic.</p>
+            <p class="mt-3 text-xs font-semibold text-ice-600 group-hover:text-ice-700 inline-flex items-center gap-1.5">Vezi detalii <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
           </div>
         </div>
 
@@ -360,19 +392,21 @@
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 product-card cursor-pointer" data-modal-title="Sisteme Industriale &amp; Chillere" data-modal-text="Soluții de climatizare și răcire pentru hale, spații de producție și clădiri mari — chillere și sisteme dimensionate pe sarcina termică reală a spațiului tău, cu mentenanță programată." data-modal-images='[{"src": "https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?auto=format&fit=crop&w=1200&q=80", "alt": "Chillere și unități industriale pe acoperișul unei clădiri", "tag": null}]'>
           <img src="https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?auto=format&fit=crop&w=600&q=80" alt="Chillere și unități industriale pe acoperișul unei clădiri" class="w-full aspect-[4/3] object-cover">
           <div class="p-5">
             <h4 class="font-bold text-ice-950">Sisteme Industriale &amp; Chillere</h4>
             <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Soluții de climatizare și răcire pentru hale, spații de producție și clădiri mari.</p>
+            <p class="mt-3 text-xs font-semibold text-ice-600 group-hover:text-ice-700 inline-flex items-center gap-1.5">Vezi detalii <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
           </div>
         </div>
 
-        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 40ms;">
-          <img src="https://images.unsplash.com/photo-1742516057446-306dc9ba1b00?auto=format&fit=crop&w=600&q=80" alt="Vitrină frigorifică comercială tip supermarket" class="w-full aspect-[4/3] object-cover">
+        <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 product-card cursor-pointer" style="transition-delay: 40ms;" data-modal-title="Refrigerare Comercială" data-modal-text="Vitrine frigorifice verticale pentru băuturi și produse răcite, camere și instalații de refrigerare/congelare pentru comerț — de la o florărie, până la lanțuri și spații HoReCa. Personalizăm fiecare soluție pentru produsul tău: temperatură, umiditate și distribuție a aerului potrivite exact cu ce vinzi." data-modal-images='[{"src": "assets/vitrina-refrigerare.jpg", "alt": "Vitrine frigorifice verticale cu băuturi și produse răcite, montate de Caloric", "tag": null}]'>
+          <img src="assets/vitrina-refrigerare.jpg" alt="Vitrine frigorifice verticale cu băuturi și produse răcite, montate de Caloric" class="w-full aspect-[4/3] object-cover">
           <div class="p-5">
             <h4 class="font-bold text-ice-950">Refrigerare Comercială</h4>
             <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Vitrine frigorifice verticale pentru băuturi și produse răcite, camere și instalații de refrigerare/congelare pentru comerț — de la o florărie, până la lanțuri și spații HoReCa. Personalizăm fiecare soluție pentru produsul tău.</p>
+            <p class="mt-3 text-xs font-semibold text-ice-600 group-hover:text-ice-700 inline-flex items-center gap-1.5">Vezi detalii <i class="fa-solid fa-arrow-right text-[10px]"></i></p>
           </div>
         </div>
 
@@ -432,14 +466,17 @@
 
     </div>
 
-    <!-- Secondary partners — understated strip, doesn't compete with Daikin/Value above -->
+    <!-- Secondary partners — understated, continuously-scrolling logo strip -->
     <div class="reveal mt-14 pt-10 border-t border-ice-200/70 text-center">
       <p class="text-sm font-semibold uppercase tracking-wider text-ice-900/50">Lucrăm și cu</p>
-      <!-- TODO: replace each placeholder pill below with the real partner logo (img, ~120x40px) once Stefan provides them -->
-      <div class="mt-6 flex flex-wrap items-center justify-center gap-4">
-        <span class="px-6 py-3 rounded-lg bg-white border border-ice-100 text-ice-900/60 font-semibold text-sm">Mitsubishi Electric</span>
-        <span class="px-6 py-3 rounded-lg bg-white border border-ice-100 text-ice-900/60 font-semibold text-sm">Gree</span>
-        <span class="px-6 py-3 rounded-lg bg-white border border-ice-100 text-ice-900/60 font-semibold text-sm">Platinium</span>
+      <!-- TODO: add Platinium's logo here (both copies below) once we have a proper high-res version -->
+      <div class="logo-marquee mt-6">
+        <div class="logo-marquee-track">
+          <img src="assets/logo-mitsubishi-electric.png" alt="Mitsubishi Electric" class="h-8 sm:h-10 w-auto object-contain mx-8 sm:mx-12 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="assets/logo-gree.png" alt="Gree" class="h-8 sm:h-10 w-auto object-contain mx-8 sm:mx-12 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="assets/logo-mitsubishi-electric.png" alt="" aria-hidden="true" class="h-8 sm:h-10 w-auto object-contain mx-8 sm:mx-12 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="assets/logo-gree.png" alt="" aria-hidden="true" class="h-8 sm:h-10 w-auto object-contain mx-8 sm:mx-12 opacity-70 hover:opacity-100 transition-opacity">
+        </div>
       </div>
     </div>
   </div>
@@ -637,6 +674,28 @@
   </div>
 </div>
 
+<!-- ============================================= -->
+<!-- PRODUCT DETAIL MODAL (shared by all service cards) -->
+<!-- ============================================= -->
+<div id="product-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6" aria-hidden="true">
+  <div id="product-modal-backdrop" class="absolute inset-0 bg-ice-950/70 backdrop-blur-sm"></div>
+  <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto">
+    <button id="product-modal-close" type="button" aria-label="Închide" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-ice-900 hover:bg-ice-50 transition-colors z-10">
+      <i class="fa-solid fa-xmark text-lg"></i>
+    </button>
+    <div class="p-6 sm:p-8">
+      <div id="product-modal-gallery" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+      <h3 id="product-modal-title" class="mt-6 text-2xl font-extrabold text-ice-950"></h3>
+      <p id="product-modal-text" class="mt-3 text-ice-900/70 leading-relaxed"></p>
+    </div>
+  </div>
+</div>
+
+<!-- Full-size image zoom, opened from inside the product modal -->
+<div id="image-zoom-overlay" class="fixed inset-0 z-[70] hidden items-center justify-center p-4 sm:p-8 bg-ice-950/90 cursor-zoom-out" aria-hidden="true">
+  <img id="image-zoom-img" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
+</div>
+
 <!-- ============================= -->
 <!-- VANILLA JS                    -->
 <!-- ============================= -->
@@ -752,6 +811,60 @@
       })
       .catch(() => { /* keep the static fallback already rendered */ });
   })();
+
+  // --- Product detail modal (click any service card for a bigger view + real photos) ---
+  const productModal = document.getElementById('product-modal');
+  const productModalBackdrop = document.getElementById('product-modal-backdrop');
+  const productModalClose = document.getElementById('product-modal-close');
+  const productModalGallery = document.getElementById('product-modal-gallery');
+  const productModalTitle = document.getElementById('product-modal-title');
+  const productModalText = document.getElementById('product-modal-text');
+  const zoomOverlay = document.getElementById('image-zoom-overlay');
+  const zoomImg = document.getElementById('image-zoom-img');
+
+  function openProductModal(card) {
+    const images = JSON.parse(card.dataset.modalImages || '[]');
+    productModalTitle.textContent = card.dataset.modalTitle || '';
+    productModalText.textContent = card.dataset.modalText || '';
+    productModalGallery.innerHTML = images.map(img => `
+      <div class="relative rounded-xl overflow-hidden border border-ice-100 cursor-zoom-in modal-zoom-trigger" data-full="${img.src}" data-alt="${img.alt}">
+        <img src="${img.src}" alt="${img.alt}" class="w-full aspect-[4/3] object-cover">
+        ${img.tag ? `<span class="absolute top-2 left-2 bg-ember-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow">${img.tag}</span>` : ''}
+      </div>`).join('');
+    productModal.classList.remove('hidden'); productModal.classList.add('flex');
+    productModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('overflow-hidden');
+  }
+  function closeProductModal() {
+    productModal.classList.add('hidden'); productModal.classList.remove('flex');
+    productModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('overflow-hidden');
+  }
+  document.querySelectorAll('.product-card[data-modal-title]').forEach(card => {
+    card.addEventListener('click', () => openProductModal(card));
+  });
+  productModalClose.addEventListener('click', closeProductModal);
+  productModalBackdrop.addEventListener('click', closeProductModal);
+
+  function openZoom(src, alt) {
+    zoomImg.src = src; zoomImg.alt = alt || '';
+    zoomOverlay.classList.remove('hidden'); zoomOverlay.classList.add('flex');
+    zoomOverlay.setAttribute('aria-hidden', 'false');
+  }
+  function closeZoom() {
+    zoomOverlay.classList.add('hidden'); zoomOverlay.classList.remove('flex');
+    zoomOverlay.setAttribute('aria-hidden', 'true');
+  }
+  productModalGallery.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.modal-zoom-trigger');
+    if (trigger) openZoom(trigger.dataset.full, trigger.dataset.alt);
+  });
+  zoomOverlay.addEventListener('click', closeZoom);
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (!zoomOverlay.classList.contains('hidden')) closeZoom();
+    else if (!productModal.classList.contains('hidden')) closeProductModal();
+  });
 
   // Scroll-reveal animation
   const revealEls = document.querySelectorAll('.reveal');
