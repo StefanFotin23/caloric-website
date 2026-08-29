@@ -6,6 +6,13 @@
 <title>Partener Oficial Daikin | Caloric Brăila</title>
 <meta name="description" content="Caloric este partener oficial Daikin în Brăila, cu peste 30 de ani de experiență în climatizare. Instalare, service și mentenanță pentru echipamente Daikin originale — climatizare, VRV/VRF și pompe de căldură Altherma.">
 
+<!-- Site is designed light-only. This tells browsers/OSes with dark mode
+     (Android "auto-dark", some mobile browsers, etc.) not to auto-invert
+     or force-dark the page — without it, backgrounds/text can get force-
+     darkened while images (like partner logos) stay as-is, killing contrast. -->
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#ffffff">
+
 <!-- Favicon: real Caloric logo -->
 <link rel="icon" type="image/png" href="assets/favicon.png">
 
@@ -34,7 +41,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; color-scheme: light; }
   body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
   .daikin-hero {
     background-image:

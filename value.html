@@ -6,6 +6,13 @@
 <title>Distribuitor Unic Value | Caloric Brăila</title>
 <meta name="description" content="Caloric este distribuitor oficial Value pentru Brăila și Galați. Acces rapid la stoc, prețuri competitive și livrare regională pentru echipamente de climatizare și încălzire Value.">
 
+<!-- Site is designed light-only. This tells browsers/OSes with dark mode
+     (Android "auto-dark", some mobile browsers, etc.) not to auto-invert
+     or force-dark the page — without it, backgrounds/text can get force-
+     darkened while images (like partner logos) stay as-is, killing contrast. -->
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#ffffff">
+
 <!-- Favicon: real Caloric logo -->
 <link rel="icon" type="image/png" href="assets/favicon.png">
 
@@ -34,7 +41,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; color-scheme: light; }
   body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
   .value-hero {
     background-image:
