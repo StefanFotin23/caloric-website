@@ -197,6 +197,32 @@
     revealEls.forEach(function (el) { revealObserver.observe(el); });
   }
 
+  // ---- Click-to-load third-party embeds (GDPR pass, 2026-08-30) ------------
+  // Google Maps + the Facebook Page Plugin used to load unconditionally on
+  // every page view, sending cookies/requests to Google/Facebook before any
+  // visitor action — a real GDPR/ePrivacy exposure. Now nothing loads until
+  // the visitor clicks the button; that click IS the consent, so this needs
+  // no cookie banner. Bonus: the iframe no longer loads on every visit,
+  // which is also a real performance win (see the audit doc).
+  document.querySelectorAll('.embed-gate').forEach(function (gate) {
+    var btn = gate.querySelector('.embed-gate-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var iframe = document.createElement('iframe');
+      iframe.src = gate.dataset.embedSrc;
+      iframe.title = gate.dataset.embedTitle || '';
+      iframe.width = '100%';
+      iframe.height = '100%';
+      iframe.style.border = '0';
+      iframe.loading = 'lazy';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share');
+      gate.innerHTML = '';
+      gate.appendChild(iframe);
+    });
+  });
+
   // ---- Lead form: submit via fetch to Web3Forms ----------------------------
   // Shows an inline success/error message without leaving the page.
   var quoteForm = document.getElementById('quote-form');

@@ -205,18 +205,25 @@ formSubject: "Cerere ofertă nouă - Caloric"
 
     <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
 
-      <!--
-        LIVE Facebook Page Plugin — pulls the real, current timeline
-        automatically. Points at facebook.com/profile.php?id=100083597462753.
-      -->
-      <div class="reveal bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl overflow-hidden shadow-sm flex items-center justify-center">
-        <iframe
-          title="Pagina de Facebook {{ site.companyName }}"
-          src="{{ site.facebookPagePluginSrc }}"
-          width="100%" height="480" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0"
-          allowfullscreen="true" loading="lazy"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-        </iframe>
+      {#
+        Click-to-load Facebook Page Plugin (GDPR pass, 2026-08-30) — nothing
+        from facebook.com loads until the visitor clicks "Încarcă pagina de
+        Facebook"; see assets/site.js for the .embed-gate handler. That click
+        is the consent, so no cookie banner is needed for this embed. Points
+        at facebook.com/profile.php?id=100083597462753 once loaded.
+      #}
+      <div class="reveal bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl overflow-hidden shadow-sm">
+        <div class="embed-gate relative bg-ice-950" style="height:480px;"
+             data-embed-src="{{ site.facebookPagePluginSrc }}"
+             data-embed-title="Pagina de Facebook {{ site.companyName }}">
+          <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center">
+            <i class="fa-brands fa-facebook text-3xl text-ice-300"></i>
+            <p class="text-white/70 text-sm max-w-xs">Vezi ultimele postări direct de pe Facebook — se încarcă doar dacă alegi tu.</p>
+            <button type="button" class="embed-gate-btn inline-flex items-center gap-2 bg-ice-600 hover:bg-ice-500 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors">
+              <i class="fa-brands fa-facebook"></i> Încarcă Pagina de Facebook
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Real project, real photo — from Caloric's own Facebook page (montaj pompă de căldură + boiler) -->
