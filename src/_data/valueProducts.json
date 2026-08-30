@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Climatizare Split & Multi-Split",
+    "shortText": "Aparate Value disponibile imediat, pentru locuințe și spații comerciale.",
+    "image": "https://images.unsplash.com/photo-1757219525975-03b5984bc6e8?auto=format&fit=crop&w=600&q=80",
+    "imageAlt": "Aparate de aer condiționat Value pe stoc"
+  },
+  {
+    "title": "Pompe de Căldură & Apă Caldă",
+    "shortText": "Soluții eficiente pentru încălzire și apă caldă menajeră, din gama Value.",
+    "image": "https://images.unsplash.com/photo-1594233078955-e1f73a02ebb2?auto=format&fit=crop&w=600&q=80",
+    "imageAlt": "Pompă de căldură Value pentru apă caldă menajeră"
+  },
+  {
+    "title": "Refrigerare & Industrial",
+    "shortText": "Chillere și sisteme de refrigerare comercială din stocul Value.",
+    "image": "https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?auto=format&fit=crop&w=600&q=80",
+    "imageAlt": "Sistem industrial Value pentru refrigerare comercială"
+  }
+]

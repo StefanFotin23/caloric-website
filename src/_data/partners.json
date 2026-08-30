@@ -1,0 +1,14 @@
+{
+  "secondaryLogos": [
+    { "file": "assets/logo-mitsubishi-electric.png", "alt": "Mitsubishi Electric" },
+    { "file": "assets/logo-gree.png", "alt": "Gree" },
+    { "file": "assets/logo-midea.png", "alt": "Midea" },
+    { "file": "assets/logo-yamato.png", "alt": "Yamato" },
+    { "file": "assets/logo-toshiba.png", "alt": "Toshiba" },
+    { "file": "assets/logo-panasonic.png", "alt": "Panasonic" },
+    { "file": "assets/logo-samsung.png", "alt": "Samsung" },
+    { "file": "assets/logo-lg.png", "alt": "LG" },
+    { "file": "assets/logo-carrier.png", "alt": "Carrier" },
+    { "file": "assets/logo-hisense.png", "alt": "Hisense" }
+  ]
+}

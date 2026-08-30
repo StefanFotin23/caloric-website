@@ -1,0 +1,52 @@
+{#
+  Shared header/nav, used identically by all 3 pages (previously hand-copied
+  3 times with small drift risk between copies).
+
+  Page-level front matter controls the two things that legitimately differ:
+    - isHome (bool)   — index.html uses same-page "#anchor" links; the two
+                        partner pages link back to "index.html#anchor".
+    - navActive (str) — set to "parteneri" on daikin.html/value.html so the
+                        "Parteneri" link renders as the active item, matching
+                        the original per-page markup.
+#}
+{% set homeHref = "#home" if isHome else "index.html" %}
+{% set prefix = "" if isHome else "index.html" %}
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur transition-shadow duration-300">
+  <nav class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-20">
+
+    <a href="{{ homeHref }}" class="flex items-center gap-2 shrink-0">
+      <img src="assets/logo-caloric.png" alt="Sigla Caloric" class="w-9 h-9 md:w-10 md:h-10 shrink-0 object-contain">
+      <span class="text-xl md:text-2xl font-extrabold tracking-tight text-ice-950">Caloric</span>
+    </a>
+
+    <ul class="hidden md:flex items-center gap-8 font-medium text-ice-900">
+      <li><a href="{{ homeHref }}" class="hover:text-ice-600 transition-colors">Acasă</a></li>
+      <li><a href="{{ prefix }}#services" class="hover:text-ice-600 transition-colors">Servicii</a></li>
+      <li><a href="{{ prefix }}#parteneri" class="{% if navActive == 'parteneri' %}text-ice-600{% else %}hover:text-ice-600 transition-colors{% endif %}">Parteneri</a></li>
+      <li><a href="{{ prefix }}#portfolio" class="hover:text-ice-600 transition-colors">Portofoliu</a></li>
+      <li><a href="{{ prefix }}#contact" class="hover:text-ice-600 transition-colors">Contact</a></li>
+    </ul>
+
+    <a href="{{ prefix }}#contact" class="hidden md:inline-flex items-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold px-5 py-2.5 rounded-lg shadow-sm transition-colors">
+      Ofertă Gratuită
+    </a>
+
+    <button id="menu-btn" aria-label="Deschide meniul" aria-expanded="false" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-ice-950 hover:bg-ice-50 transition-colors">
+      <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-ice-100">
+    <ul class="flex flex-col px-5 py-4 gap-1 font-medium text-ice-900">
+      <li><a href="{{ homeHref }}" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Acasă</a></li>
+      <li><a href="{{ prefix }}#services" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Servicii</a></li>
+      <li><a href="{{ prefix }}#parteneri" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50{% if navActive == 'parteneri' %} text-ice-600{% endif %}">Parteneri</a></li>
+      <li><a href="{{ prefix }}#portfolio" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Portofoliu</a></li>
+      <li><a href="{{ prefix }}#contact" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Contact</a></li>
+      <li class="pt-2">
+        <a href="{{ prefix }}#contact" class="mobile-link block text-center bg-ember-500 hover:bg-ember-600 text-white font-semibold px-5 py-3 rounded-lg transition-colors">Ofertă Gratuită</a>
+      </li>
+    </ul>
+  </div>
+</header>

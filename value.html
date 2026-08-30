@@ -6,12 +6,16 @@
 <title>Distribuitor Unic Value | Caloric Brăila</title>
 <meta name="description" content="Caloric este distribuitor oficial Value pentru Brăila și Galați. Acces rapid la stoc, prețuri competitive și livrare regională pentru echipamente de climatizare și încălzire Value.">
 
-<!-- Site is designed light-only. This tells browsers/OSes with dark mode
-     (Android "auto-dark", some mobile browsers, etc.) not to auto-invert
-     or force-dark the page — without it, backgrounds/text can get force-
-     darkened while images (like partner logos) stay as-is, killing contrast. -->
-<meta name="color-scheme" content="light only">
-<meta name="theme-color" content="#ffffff">
+<!-- The site now ships a real dark-mode palette (see assets/tailwind-config.js
+     for the brand colors and the `dark:` classes throughout this file). This
+     declares support for both, so browsers/OSes with dark mode (Android
+     "auto-dark", Samsung Internet's forced-dark, etc.) render OUR dark
+     styles instead of algorithmically inverting/force-darkening the page
+     themselves — which is what was breaking contrast (e.g. on logos)
+     before. -->
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1a2e" media="(prefers-color-scheme: dark)">
 
 <!-- Favicon: real Caloric logo -->
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -23,25 +27,12 @@
 
 <!-- Tailwind CSS (CDN, zero build step) -->
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
-        colors: {
-          ice: { 50:'#eff8ff',100:'#dbeffe',200:'#bfe4fe',300:'#93d3fd',400:'#5fb9fa',500:'#3a9df3',600:'#2680e8',700:'#1f68d4',800:'#2054ab',900:'#1e2f4d',950:'#0f1a2e' },
-          ember: { 50:'#fff5ed',100:'#ffe7d3',200:'#ffcaa5',300:'#ffa66d',400:'#ff7a33',500:'#fd570f',600:'#ee3d05',700:'#c52a08',800:'#9c220f',900:'#7e1f10' },
-        },
-        boxShadow: { nav: '0 4px 20px -2px rgba(15, 26, 46, 0.08)' },
-      },
-    },
-  };
-</script>
+<script src="assets/tailwind-config.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-  html { scroll-behavior: smooth; color-scheme: light; }
+  html { scroll-behavior: smooth; color-scheme: light dark; }
   body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
   .value-hero {
     background-image:
@@ -56,7 +47,7 @@
   .reveal.in-view { opacity: 1; transform: translateY(0); }
 </style>
 </head>
-<body class="bg-white text-ice-950 antialiased">
+<body class="bg-white text-ice-950 dark:text-ice-50 antialiased dark:bg-ice-950">
 
 <!-- ============================= -->
 <!-- NAVIGATION (same as index.html, links point back to index.html sections) -->
@@ -125,31 +116,31 @@
 <!-- ============================= -->
 <!-- DE CE VALUE                   -->
 <!-- ============================= -->
-<section class="py-20 sm:py-28 bg-white">
+<section class="py-20 sm:py-28 bg-white dark:bg-ice-950">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="max-w-2xl mx-auto text-center reveal">
       <span class="text-ember-500 font-semibold uppercase tracking-wider text-sm">De Ce Value</span>
-      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ice-950">Stoc, Preț și Acoperire Regională</h2>
-      <p class="mt-4 text-ice-900/70 text-lg">
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ice-950 dark:text-ice-50">Stoc, Preț și Acoperire Regională</h2>
+      <p class="mt-4 text-ice-900/70 dark:text-ice-100/70 text-lg">
         Fiind distribuitor oficial Value pentru Brăila și Galați, avem acces direct la stocul furnizorului — fără intermediari și fără așteptare inutilă.
       </p>
     </div>
 
     <div class="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6">
-      <div class="reveal bg-white border border-ice-100 rounded-2xl p-7 shadow-sm text-center">
+      <div class="reveal bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl p-7 shadow-sm text-center">
         <i class="fa-solid fa-warehouse text-3xl text-ember-500 mb-4"></i>
-        <h3 class="font-bold text-ice-950">Acces Rapid la Stoc</h3>
-        <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Echipamente disponibile direct din stocul de distribuitor, fără termene lungi de așteptare.</p>
+        <h3 class="font-bold text-ice-950 dark:text-ice-50">Acces Rapid la Stoc</h3>
+        <p class="mt-2 text-sm text-ice-900/70 dark:text-ice-100/70 leading-relaxed">Echipamente disponibile direct din stocul de distribuitor, fără termene lungi de așteptare.</p>
       </div>
-      <div class="reveal bg-white border border-ice-100 rounded-2xl p-7 shadow-sm text-center" style="transition-delay: 80ms;">
+      <div class="reveal bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl p-7 shadow-sm text-center" style="transition-delay: 80ms;">
         <i class="fa-solid fa-tags text-3xl text-ember-500 mb-4"></i>
-        <h3 class="font-bold text-ice-950">Prețuri Competitive</h3>
-        <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Fiind distribuitor oficial, oferim prețuri de la sursă, fără marje de intermediar.</p>
+        <h3 class="font-bold text-ice-950 dark:text-ice-50">Prețuri Competitive</h3>
+        <p class="mt-2 text-sm text-ice-900/70 dark:text-ice-100/70 leading-relaxed">Fiind distribuitor oficial, oferim prețuri de la sursă, fără marje de intermediar.</p>
       </div>
-      <div class="reveal bg-white border border-ice-100 rounded-2xl p-7 shadow-sm text-center" style="transition-delay: 160ms;">
+      <div class="reveal bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl p-7 shadow-sm text-center" style="transition-delay: 160ms;">
         <i class="fa-solid fa-map-location-dot text-3xl text-ember-500 mb-4"></i>
-        <h3 class="font-bold text-ice-950">Acoperire Brăila &amp; Galați</h3>
-        <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Livrare, instalare și service pe toată aria Brăila-Galați, cu echipa noastră proprie.</p>
+        <h3 class="font-bold text-ice-950 dark:text-ice-50">Acoperire Brăila &amp; Galați</h3>
+        <p class="mt-2 text-sm text-ice-900/70 dark:text-ice-100/70 leading-relaxed">Livrare, instalare și service pe toată aria Brăila-Galați, cu echipa noastră proprie.</p>
       </div>
     </div>
   </div>
@@ -158,39 +149,39 @@
 <!-- ============================= -->
 <!-- GAMA DE PRODUSE VALUE         -->
 <!-- ============================= -->
-<section class="py-20 sm:py-28 bg-ice-50/60">
+<section class="py-20 sm:py-28 bg-ice-50/60 dark:bg-ice-950">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
     <div class="max-w-2xl mx-auto text-center reveal">
-      <span class="text-ice-600 font-semibold uppercase tracking-wider text-sm">Gama Value</span>
-      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ice-950">Ce Avem pe Stoc</h2>
+      <span class="text-ice-600 dark:text-ice-300 font-semibold uppercase tracking-wider text-sm">Gama Value</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ice-950 dark:text-ice-50">Ce Avem pe Stoc</h2>
     </div>
 
     <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+      <div class="reveal group bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
         <img src="https://images.unsplash.com/photo-1757219525975-03b5984bc6e8?auto=format&fit=crop&w=600&q=80" alt="Aparate de aer condiționat Value pe stoc" class="w-full aspect-[4/3] object-cover">
         <div class="p-5">
-          <h4 class="font-bold text-ice-950">Climatizare Split &amp; Multi-Split</h4>
-          <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Aparate Value disponibile imediat, pentru locuințe și spații comerciale.</p>
+          <h4 class="font-bold text-ice-950 dark:text-ice-50">Climatizare Split &amp; Multi-Split</h4>
+          <p class="mt-2 text-sm text-ice-900/70 dark:text-ice-100/70 leading-relaxed">Aparate Value disponibile imediat, pentru locuințe și spații comerciale.</p>
         </div>
       </div>
-      <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 40ms;">
+      <div class="reveal group bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 40ms;">
         <img src="https://images.unsplash.com/photo-1594233078955-e1f73a02ebb2?auto=format&fit=crop&w=600&q=80" alt="Pompă de căldură Value pentru apă caldă menajeră" class="w-full aspect-[4/3] object-cover">
         <div class="p-5">
-          <h4 class="font-bold text-ice-950">Pompe de Căldură &amp; Apă Caldă</h4>
-          <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Soluții eficiente pentru încălzire și apă caldă menajeră, din gama Value.</p>
+          <h4 class="font-bold text-ice-950 dark:text-ice-50">Pompe de Căldură &amp; Apă Caldă</h4>
+          <p class="mt-2 text-sm text-ice-900/70 dark:text-ice-100/70 leading-relaxed">Soluții eficiente pentru încălzire și apă caldă menajeră, din gama Value.</p>
         </div>
       </div>
-      <div class="reveal group bg-white border border-ice-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 80ms;">
+      <div class="reveal group bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style="transition-delay: 80ms;">
         <img src="https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?auto=format&fit=crop&w=600&q=80" alt="Sistem industrial Value pentru refrigerare comercială" class="w-full aspect-[4/3] object-cover">
         <div class="p-5">
-          <h4 class="font-bold text-ice-950">Refrigerare &amp; Industrial</h4>
-          <p class="mt-2 text-sm text-ice-900/70 leading-relaxed">Chillere și sisteme de refrigerare comercială din stocul Value.</p>
+          <h4 class="font-bold text-ice-950 dark:text-ice-50">Refrigerare &amp; Industrial</h4>
+          <p class="mt-2 text-sm text-ice-900/70 dark:text-ice-100/70 leading-relaxed">Chillere și sisteme de refrigerare comercială din stocul Value.</p>
         </div>
       </div>
     </div>
 
-    <p class="reveal mt-10 text-center text-ice-900/60">
-      Vezi și restul serviciilor noastre în <a href="index.html#services" class="text-ice-600 font-semibold hover:underline">secțiunea Servicii</a>.
+    <p class="reveal mt-10 text-center text-ice-900/60 dark:text-ice-200/60">
+      Vezi și restul serviciilor noastre în <a href="index.html#services" class="text-ice-600 dark:text-ice-300 font-semibold hover:underline">secțiunea Servicii</a>.
     </p>
   </div>
 </section>
@@ -234,22 +225,22 @@
         </div>
       </div>
 
-      <div class="reveal bg-white text-ice-950 rounded-2xl p-6 sm:p-8 shadow-2xl" style="transition-delay: 100ms;">
+      <div class="reveal bg-white text-ice-950 dark:text-ice-50 rounded-2xl p-6 sm:p-8 shadow-2xl dark:bg-ice-900" style="transition-delay: 100ms;">
         <form id="quote-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-5">
           <input type="hidden" name="access_key" value="b88e84eb-a1e4-42fc-b390-1f04e5352c5d">
           <input type="hidden" name="subject" value="Cerere ofertă nouă - Caloric (pagina Value)">
           <input type="checkbox" name="botcheck" class="hidden" style="display:none">
           <div>
-            <label for="name" class="block text-sm font-semibold text-ice-900 mb-1.5">Nume</label>
-            <input type="text" id="name" name="name" required placeholder="Numele tău" class="w-full px-4 py-3 rounded-lg border border-ice-200 focus:border-ice-500 focus:ring-2 focus:ring-ice-200 outline-none transition-all">
+            <label for="name" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Nume</label>
+            <input type="text" id="name" name="name" required placeholder="Numele tău" class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all">
           </div>
           <div>
-            <label for="phone" class="block text-sm font-semibold text-ice-900 mb-1.5">Număr de telefon</label>
-            <input type="tel" id="phone" name="phone" required placeholder="07xx xxx xxx" class="w-full px-4 py-3 rounded-lg border border-ice-200 focus:border-ice-500 focus:ring-2 focus:ring-ice-200 outline-none transition-all">
+            <label for="phone" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Număr de telefon</label>
+            <input type="tel" id="phone" name="phone" required placeholder="07xx xxx xxx" class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all">
           </div>
           <div>
-            <label for="city" class="block text-sm font-semibold text-ice-900 mb-1.5">Oraș</label>
-            <select id="city" name="city" required class="w-full px-4 py-3 rounded-lg border border-ice-200 focus:border-ice-500 focus:ring-2 focus:ring-ice-200 outline-none transition-all bg-white">
+            <label for="city" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Oraș</label>
+            <select id="city" name="city" required class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all bg-white">
               <option value="Braila" selected>Brăila</option>
               <option value="Galati">Galați</option>
               <option value="Tulcea">Tulcea</option>
@@ -257,8 +248,8 @@
             </select>
           </div>
           <div>
-            <label for="problem" class="block text-sm font-semibold text-ice-900 mb-1.5">Descrierea problemei</label>
-            <textarea id="problem" name="problem" rows="4" required placeholder="Spune-ne pe scurt de ce ai nevoie..." class="w-full px-4 py-3 rounded-lg border border-ice-200 focus:border-ice-500 focus:ring-2 focus:ring-ice-200 outline-none transition-all resize-none"></textarea>
+            <label for="problem" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Descrierea problemei</label>
+            <textarea id="problem" name="problem" rows="4" required placeholder="Spune-ne pe scurt de ce ai nevoie..." class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all resize-none"></textarea>
           </div>
           <div class="h-captcha" data-captcha="true"></div>
 

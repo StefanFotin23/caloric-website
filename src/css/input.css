@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Everything below is hand-written CSS that doesn't fit Tailwind utility
+ * classes (keyframe animations, a couple of background-image gradients,
+ * a transition on a non-utility property). Previously duplicated inside
+ * a <style> block on each of the 3 pages — now compiled once into
+ * src/assets/css/site.css alongside the Tailwind utilities.
+ */
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Mobile menu open/close transition */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+#mobile-menu.open {
+  max-height: 420px;
+}
+
+/* Scroll-reveal fade/slide-in (see assets/site.js for the IntersectionObserver) */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Home hero background photo + gradient overlay */
+.hero-bg {
+  background-image: linear-gradient(
+      180deg,
+      rgba(15, 26, 46, 0.75) 0%,
+      rgba(15, 26, 46, 0.55) 45%,
+      rgba(15, 26, 46, 0.85) 100%
+    ),
+    url("https://images.unsplash.com/photo-1642749776312-aa42ce20c9f5?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Daikin page hero background */
+.daikin-hero {
+  background-image: linear-gradient(
+      180deg,
+      rgba(15, 26, 46, 0.8) 0%,
+      rgba(15, 42, 80, 0.55) 45%,
+      rgba(15, 26, 46, 0.88) 100%
+    ),
+    url("https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Value page hero background */
+.value-hero {
+  background-image: linear-gradient(
+      180deg,
+      rgba(15, 26, 46, 0.82) 0%,
+      rgba(124, 42, 10, 0.55) 45%,
+      rgba(15, 26, 46, 0.88) 100%
+    ),
+    url("https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Secondary-partner logo marquee — continuous left-to-right scroll, CSS-only */
+.logo-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+.logo-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: logo-marquee-scroll 81s linear infinite;
+}
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes logo-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-track {
+    animation: none;
+  }
+}

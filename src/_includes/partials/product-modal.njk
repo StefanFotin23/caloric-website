@@ -1,0 +1,24 @@
+{#
+  Shared product-detail modal + full-size image zoom overlay. Any element
+  with class="product-card" and a data-modal-title attribute (see the
+  productCard() macro in _includes/macros.njk) opens this on click —
+  see assets/site.js for the interaction logic.
+#}
+<div id="product-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6" aria-hidden="true">
+  <div id="product-modal-backdrop" class="absolute inset-0 bg-ice-950/70 backdrop-blur-sm"></div>
+  <div class="relative bg-white dark:bg-ice-900 rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto">
+    <button id="product-modal-close" type="button" aria-label="Închide" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-md dark:bg-ice-800 flex items-center justify-center text-ice-900 dark:text-ice-200 hover:bg-ice-50 transition-colors dark:hover:bg-ice-800 z-10">
+      <i class="fa-solid fa-xmark text-lg"></i>
+    </button>
+    <div class="p-6 sm:p-8">
+      <div id="product-modal-gallery" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+      <h3 id="product-modal-title" class="mt-6 text-2xl font-extrabold text-ice-950 dark:text-ice-50"></h3>
+      <p id="product-modal-text" class="mt-3 text-ice-900/70 dark:text-ice-100/70 leading-relaxed"></p>
+    </div>
+  </div>
+</div>
+
+<!-- Full-size image zoom, opened from inside the product modal -->
+<div id="image-zoom-overlay" class="fixed inset-0 z-[70] hidden items-center justify-center p-4 sm:p-8 bg-ice-950/90 cursor-zoom-out" aria-hidden="true">
+  <img id="image-zoom-img" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
+</div>

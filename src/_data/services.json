@@ -1,0 +1,146 @@
+{
+  "categories": [
+    {
+      "id": "cat-climatizare",
+      "icon": "fa-snowflake",
+      "theme": "ice",
+      "title": "Climatizare",
+      "cards": [
+        {
+          "title": "AC Split (Perete)",
+          "shortText": "Face cald iarna, răcoare vara — o singură investiție, montaj rapid, fără renovări. Controlezi totul de pe telefon.",
+          "modalText": "Soluția clasică pentru o cameră sau un apartament: montaj rapid, fără renovări, eficiență ridicată la răcire și încălzire. În poză: Daikin Perfera W, unul dintre modelele pe care le montăm cel mai des. Îl controlezi complet din aplicația de telefon — temperatură, program, moduri — de oriunde ești.",
+          "image": "assets/daikin-perfera-w.jpg",
+          "imageAlt": "Aparat de aer condiționat Daikin Perfera W, montat pe perete",
+          "modalImages": [
+            { "src": "assets/daikin-perfera-w.jpg", "alt": "Aparat de aer condiționat Daikin Perfera W, montat pe perete într-o cameră de zi", "tag": null }
+          ]
+        },
+        {
+          "title": "Sisteme Multi-Split",
+          "shortText": "O singură unitate exterioară pentru mai multe camere — ideal pentru case și apartamente mai mari.",
+          "modalText": "O singură unitate exterioară alimentează mai multe unități interioare, fiecare cu temperatura ei — ideal când vrei să climatizezi 2-5 camere fără să umpli fațada casei de unități exterioare. Potrivit pentru case și apartamente mai mari.",
+          "image": "https://images.unsplash.com/photo-1757219525975-03b5984bc6e8?auto=format&fit=crop&w=600&q=80",
+          "imageAlt": "Unitate exterioară multi-split",
+          "modalImages": [
+            { "src": "https://images.unsplash.com/photo-1757219525975-03b5984bc6e8?auto=format&fit=crop&w=1200&q=80", "alt": "Unitate exterioară multi-split", "tag": null }
+          ]
+        },
+        {
+          "title": "Sisteme VRV / VRF",
+          "shortText": "Climatizare centralizată pentru clădiri de birouri, hoteluri și spații comerciale.",
+          "modalText": "Climatizare centralizată pentru clădiri de birouri, hoteluri și spații comerciale — o singură rețea de agent frigorific poate deservi zeci de unități interioare, fiecare controlată independent. Poze și date tehnice complete, în curând.",
+          "image": "https://images.unsplash.com/photo-1768677432858-b9a8608dd849?auto=format&fit=crop&w=600&q=80",
+          "imageAlt": "Unități de climatizare pe acoperișul unei clădiri comerciale",
+          "modalImages": [
+            { "src": "https://images.unsplash.com/photo-1768677432858-b9a8608dd849?auto=format&fit=crop&w=1200&q=80", "alt": "Unități de climatizare pe acoperișul unei clădiri comerciale", "tag": null }
+          ]
+        },
+        {
+          "title": "Unități Tip Duct",
+          "shortText": "Ascunse complet în tavanul fals — climatizare invizibilă, fără unități aparente pe pereți.",
+          "modalText": "Unitatea stă complet ascunsă în tavanul fals — se văd doar grilele de refulare, discret integrate în tavan. Dimensiuni compacte, potrivite în spații înguste, cu opțiune de autocurățare pentru eficiență și fiabilitate pe termen lung.",
+          "image": "assets/daikin-duct-ascuns.jpg",
+          "imageAlt": "Unitate Daikin necarcasată, de tip duct, pentru montare ascunsă în tavan fals",
+          "modalImages": [
+            { "src": "assets/daikin-duct-ascuns.jpg", "alt": "Unitate Daikin necarcasată, de tip duct, pentru montare ascunsă în tavan fals", "tag": null }
+          ]
+        },
+        {
+          "title": "Unități Tip Casetă",
+          "shortText": "Montate în tavan, cu distribuție uniformă a aerului — potrivite pentru birouri și magazine.",
+          "modalText": "Montate la nivelul tavanului, cu jet de aer pe 360° pentru o distribuție uniformă a temperaturii în toată încăperea — soluția potrivită pentru birouri, magazine și spații comerciale cu tavan fals.",
+          "image": "assets/daikin-caseta-tavan.jpg",
+          "imageAlt": "Unitate de climatizare Daikin tip casetă, montată vizibil în tavanul unui spațiu comercial",
+          "modalImages": [
+            { "src": "assets/daikin-caseta-tavan.jpg", "alt": "Unitate de climatizare Daikin tip casetă, montată vizibil în tavanul unui spațiu comercial", "tag": null }
+          ]
+        },
+        {
+          "title": "Unități Consolă / Parapet",
+          "shortText": "Montaj jos, sub fereastră — o alternativă discretă acolo unde montajul pe perete înalt nu e posibil.",
+          "modalText": "Montaj jos, la nivelul pardoselii sau sub fereastră — alternativa discretă acolo unde montajul pe perete înalt nu e posibil sau nu arată bine. În poză: Daikin Perfera F, cu încălzire accelerată și încălzire a pardoselii.",
+          "image": "assets/daikin-perfera-f-console.jpg",
+          "imageAlt": "Unitate de interior Daikin Perfera F, montată la nivelul pardoselii",
+          "modalImages": [
+            { "src": "assets/daikin-perfera-f-console.jpg", "alt": "Unitate de interior Daikin Perfera F, montată la nivelul pardoselii într-o cameră de zi", "tag": null }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-incalzire",
+      "icon": "fa-fire",
+      "theme": "ember",
+      "title": "Încălzire & Pompe de Căldură",
+      "cards": [
+        {
+          "title": "Pompe de Căldură Aer-Apă",
+          "shortText": "Încălzire, răcire și apă caldă dintr-un singur sistem — fără gaz, fără poluare, consum redus.",
+          "modalText": "Încălzire, răcire și apă caldă menajeră dintr-un singur sistem, conectat la caloriferele sau încălzirea în pardoseală pe care le ai deja. Consumă exclusiv energie electrică — fără gaz, fără poluare, consum redus.",
+          "image": "https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&fit=crop&w=600&q=80",
+          "imageAlt": "Unitate exterioară de pompă de căldură lângă o casă",
+          "modalImages": [
+            { "src": "https://images.unsplash.com/photo-1776860150305-108ed577d7d4?auto=format&fit=crop&w=1200&q=80", "alt": "Unitate exterioară de pompă de căldură lângă o casă", "tag": null }
+          ]
+        },
+        {
+          "title": "Apă Caldă Menajeră",
+          "shortText": "Boilere cu pompă de căldură — apă caldă tot anul, cu un consum electric de câteva ori mai mic.",
+          "modalText": "Boiler cu pompă de căldură: apă caldă tot anul, cu un consum electric de câteva ori mai mic decât o rezistență electrică clasică. În poză: Daikin Altherma M HW, unitatea monobloc dedicată producerii de apă caldă menajeră.",
+          "image": "assets/daikin-altherma-m-hw.jpg",
+          "imageAlt": "Daikin Altherma M HW, pompă de căldură monobloc pentru apă caldă menajeră",
+          "modalImages": [
+            { "src": "assets/daikin-altherma-m-hw.jpg", "alt": "Daikin Altherma M HW, pompă de căldură monobloc pentru apă caldă menajeră", "tag": null }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-ventilatie",
+      "icon": "fa-wind",
+      "theme": "ice",
+      "title": "Ventilație",
+      "cards": [
+        {
+          "title": "Ventilație cu Recuperare de Căldură",
+          "shortText": "Aer proaspăt permanent, fără să pierzi căldura din casă — ideal pentru locuințe eficiente energetic.",
+          "modalText": "Aer proaspăt permanent în casă, fără să pierzi căldura pe care ai plătit deja s-o produci — sistemul recuperează căldura din aerul evacuat și o transferă aerului proaspăt care intră. Ideal pentru locuințe noi sau eficiente energetic.",
+          "image": "https://images.unsplash.com/photo-1708705261211-b2a244a811dc?auto=format&fit=crop&w=600&q=80",
+          "imageAlt": "Ducte de ventilație montate pe tavanul unei clădiri",
+          "modalImages": [
+            { "src": "https://images.unsplash.com/photo-1708705261211-b2a244a811dc?auto=format&fit=crop&w=1200&q=80", "alt": "Ducte de ventilație montate pe tavanul unei clădiri", "tag": null }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat-refrigerare",
+      "icon": "fa-industry",
+      "theme": "ember",
+      "title": "Refrigerare Comercială & Industrial",
+      "cards": [
+        {
+          "title": "Sisteme Industriale & Chillere",
+          "shortText": "Soluții de climatizare și răcire pentru hale, spații de producție și clădiri mari.",
+          "modalText": "Soluții de climatizare și răcire pentru hale, spații de producție și clădiri mari — chillere și sisteme dimensionate pe sarcina termică reală a spațiului tău, cu mentenanță programată.",
+          "image": "https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?auto=format&fit=crop&w=600&q=80",
+          "imageAlt": "Chillere și unități industriale pe acoperișul unei clădiri",
+          "modalImages": [
+            { "src": "https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?auto=format&fit=crop&w=1200&q=80", "alt": "Chillere și unități industriale pe acoperișul unei clădiri", "tag": null }
+          ]
+        },
+        {
+          "title": "Refrigerare Comercială",
+          "shortText": "Vitrine frigorifice verticale pentru băuturi și produse răcite, camere și instalații de refrigerare/congelare pentru comerț — de la o florărie, până la lanțuri și spații HoReCa. Personalizăm fiecare soluție pentru produsul tău.",
+          "modalText": "Vitrine frigorifice verticale pentru băuturi și produse răcite, camere și instalații de refrigerare/congelare pentru comerț — de la o florărie, până la lanțuri și spații HoReCa. Personalizăm fiecare soluție pentru produsul tău: temperatură, umiditate și distribuție a aerului potrivite exact cu ce vinzi.",
+          "image": "assets/vitrina-refrigerare.jpg",
+          "imageAlt": "Vitrine frigorifice verticale cu băuturi și produse răcite, montate de Caloric",
+          "modalImages": [
+            { "src": "assets/vitrina-refrigerare.jpg", "alt": "Vitrine frigorifice verticale cu băuturi și produse răcite, montate de Caloric", "tag": null }
+          ]
+        }
+      ]
+    }
+  ]
+}

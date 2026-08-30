@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+
+<!-- color-scheme: light dark + real dark: styling (see tailwind.config.js
+     and assets/css/site.css) tells browsers/OSes with dark mode (Android
+     auto-dark, Samsung Internet's forced-dark, etc.) that this page has its
+     own real dark styling — so they render that instead of algorithmically
+     force-darkening the page themselves, which is what broke contrast
+     (logos especially) before this was fixed. -->
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1a2e" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Compiled by Tailwind CLI at build time (npm run build) from src/css/input.css
+     + tailwind.config.js — no more Play CDN, no more client-side compiling. -->
+<link rel="stylesheet" href="assets/css/site.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="bg-white text-ice-950 dark:text-ice-50 antialiased dark:bg-ice-950">
+
+{% include "partials/nav.njk" %}
+
+{{ content | safe }}
+
+{% include "partials/footer.njk" %}
+{% include "partials/product-modal.njk" %}
+
+<script src="assets/site.js" defer></script>
+<script src="https://web3forms.com/client/script.js" async defer></script>
+</body>
+</html>

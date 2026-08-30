@@ -1,0 +1,255 @@
+---
+layout: base.njk
+title: "Caloric | Instalații HVAC Profesionale în Brăila"
+description: "Caloric - instalare, mentenanță și reparații sisteme de climatizare, încălzire și ventilație în Brăila, Romania. Cere o ofertă gratuită."
+permalink: "index.html"
+isHome: true
+formSubject: "Cerere ofertă nouă - Caloric"
+---
+{% import "macros.njk" as m %}
+
+<!-- ============================================================ -->
+<!-- Secondary sticky bar — product category quick-links (desktop) -->
+<!-- Hidden on mobile to avoid overlapping the hamburger dropdown; -->
+<!-- mobile visitors reach categories by scrolling the Servicii    -->
+<!-- section instead.                                              -->
+<!-- ============================================================ -->
+<div id="subnav" class="hidden md:block fixed top-20 left-0 right-0 z-40 bg-ice-950 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-8 flex items-center gap-7 h-11 overflow-x-auto text-sm font-medium text-ice-100/80 whitespace-nowrap">
+    <span class="text-ice-100/40 uppercase tracking-wider text-xs shrink-0">Servicii:</span>
+    {% for category in services.categories %}
+    <a href="#{{ category.id }}" class="scroll-link hover:text-white transition-colors shrink-0">{{ category.title }}</a>
+    {% endfor %}
+    <a href="#parteneri" class="scroll-link hover:text-white transition-colors shrink-0">Parteneri</a>
+  </div>
+</div>
+
+<!-- ============================= -->
+<!-- HERO SECTION                  -->
+<!-- ============================= -->
+<section id="home" class="hero-bg relative flex items-center min-h-[92vh] pt-16 md:pt-32">
+  <!-- NOTE: to swap the hero photo, edit .hero-bg in src/css/input.css -->
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full">
+    <div class="max-w-2xl">
+      <div class="flex flex-wrap items-center gap-3 mb-6">
+        <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-ice-100 text-sm font-medium px-4 py-1.5 rounded-full backdrop-blur-sm">
+          <i class="fa-solid fa-location-dot text-ember-400"></i>
+          Brăila &amp; împrejurimi
+        </span>
+        <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-ice-100 text-sm font-medium px-4 py-1.5 rounded-full backdrop-blur-sm">
+          <i class="fa-solid fa-award text-ice-300"></i>
+          Din 1995 &middot; Peste 30 de Ani de Experiență
+        </span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+        Soluții Profesionale de <span class="text-ice-300">Climatizare</span> și <span class="text-ember-400">Încălzire</span> în Brăila
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-ice-100/90 max-w-xl">
+        Instalare, mentenanță și reparații pentru sisteme rezidențiale și comerciale — intervenție rapidă și lucru garantat.
+      </p>
+      <div class="mt-9 flex flex-col sm:flex-row gap-4">
+        <a href="#contact" class="scroll-link inline-flex items-center justify-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-lg shadow-ember-900/30 transition-all hover:-translate-y-0.5">
+          <i class="fa-solid fa-bolt"></i>
+          Cere Ofertă Gratuită
+        </a>
+        <a href="#services" class="scroll-link inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-xl backdrop-blur-sm transition-all">
+          Vezi Serviciile
+        </a>
+      </div>
+
+      <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-ice-100/90 text-sm font-medium">
+        <span class="flex items-center gap-2"><i class="fa-solid fa-medal text-ice-300"></i> Peste 30 de ani de experiență</span>
+        <span class="flex items-center gap-2"><i class="fa-solid fa-certificate text-ember-400"></i> Partener Oficial Daikin</span>
+        <span id="google-rating-badge" class="flex items-center gap-2" data-place-id="" data-api-key=""><i class="fa-solid fa-star text-ember-400"></i> {{ site.googleRating.value }}/5 pe Google ({{ site.googleRating.count }} recenzii)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- SERVICES SECTION              -->
+<!-- ============================= -->
+<section id="services" class="py-20 sm:py-28 bg-white dark:bg-ice-950">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <span class="text-ember-500 font-semibold uppercase tracking-wider text-sm">Ce Facem</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ice-950 dark:text-ice-50">Serviciile Noastre</h2>
+      <p class="mt-4 text-ice-900/70 dark:text-ice-100/70 text-lg">
+        De la montaj și punere în funcțiune, până la mentenanță periodică și reparații de urgență.
+      </p>
+    </div>
+
+    {% for category in services.categories %}
+    <div id="{{ category.id }}" class="mt-16 scroll-mt-32">
+      <div class="reveal flex items-center gap-3 mb-7">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 {{ 'bg-ice-50 dark:bg-ice-800/60' if category.theme == 'ice' else 'bg-ember-50 dark:bg-ember-500/10' }}">
+          <i class="fa-solid {{ category.icon }} {{ 'text-ice-600 dark:text-ice-300' if category.theme == 'ice' else 'text-ember-500' }}"></i>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold text-ice-950 dark:text-ice-50">{{ category.title }}</h3>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for card in category.cards %}
+        {{ m.productCard(card, loop.index0 * 40) }}
+        {% endfor %}
+      </div>
+
+      {% if category.id == "cat-incalzire" %}
+      <!-- Highlight: thermodynamic-engineering angle — electricity-only, efficiency, solar synergy -->
+      <div class="reveal mt-6 bg-gradient-to-br from-ice-950 to-ice-800 rounded-2xl p-7 sm:p-8 text-white" style="transition-delay: 80ms;">
+        <div class="flex items-start gap-4">
+          <div class="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-bolt text-ice-200"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg">De Ce Pompele de Căldură, din Perspectiva Noastră de Ingineri</h4>
+            <p class="mt-2 text-ice-100/80 leading-relaxed max-w-3xl">
+              Uită de factura la gaze, de revizia obligatorie din doi în doi ani și de grija unei instalații pe combustibil. O pompă de căldură funcționează exclusiv cu energie electrică — te conectezi la ea, nu la rețeaua de gaz. Iar dacă ai deja panouri fotovoltaice (sau vrei să pui), practic te încălzești gratis, din propria energie, fără să mai depinzi de nimeni. Cu o baterie de stocare, ești acoperit chiar și la o pană de curent.
+            </p>
+            <p class="mt-3 text-ice-100/80 leading-relaxed max-w-3xl">
+              Ca ingineri de mecanică și termodinamică, nu recomandăm pompele de căldură pentru că &bdquo;așa e moda&rdquo; — le recomandăm pentru că, la un randament (COP) tipic de 3-5, livrează 3-5&nbsp;kWh de căldură pentru fiecare 1&nbsp;kWh consumat. Nu vindem noi panouri fotovoltaice, dar lucrăm cu parteneri pe care ți-i putem recomanda dacă vrei să-ți acoperi consumul din surse proprii.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="reveal mt-5 text-sm text-ice-900/50 dark:text-ice-300/50">
+        Facem și intervenții la centrale termice și cazane clasice, la cerere — dar nu este direcția noastră principală; ne concentrăm pe soluții de încălzire, răcire și ventilație pe bază de pompă de căldură.
+      </p>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- PARTENERI — Daikin & Value spotlight,        -->
+<!--     plus a lighter strip of secondary brands -->
+<!-- ============================================= -->
+<section id="parteneri" class="py-20 sm:py-28 bg-ice-50/60 dark:bg-ice-950 scroll-mt-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <span class="text-ember-500 font-semibold uppercase tracking-wider text-sm">Parteneri</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ice-950 dark:text-ice-50">Parteneriate care Contează</h2>
+      <p class="mt-4 text-ice-900/70 dark:text-ice-100/70 text-lg">
+        Lucrăm direct cu producători și distribuitori de top, ca să livrăm echipamente originale și service garantat.
+      </p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Daikin card -->
+      <a href="daikin.html" class="reveal group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-ice-100 dark:bg-ice-900 dark:border-ice-800">
+        <div class="h-40 bg-ice-50 border-b-4 border-ice-600 flex items-center justify-center px-8">
+          <img src="assets/logo-daikin.png" alt="Sigla Daikin Business Partner" class="max-h-20 max-w-full object-contain">
+        </div>
+        <div class="p-7">
+          <h3 class="text-xl font-bold text-ice-950 dark:text-ice-50">Partener Oficial Daikin</h3>
+          <p class="mt-2 text-ice-900/70 dark:text-ice-100/70 leading-relaxed">
+            Instalăm și service-uim echipamente Daikin originale — climatizare, pompe de căldură și sisteme VRV, cu garanție de producător.
+          </p>
+          <span class="mt-4 inline-flex items-center gap-2 text-ice-600 dark:text-ice-300 font-semibold group-hover:gap-3 transition-all">
+            Vezi pagina Daikin <i class="fa-solid fa-arrow-right text-sm"></i>
+          </span>
+        </div>
+      </a>
+
+      <!-- Value card -->
+      <a href="value.html" class="reveal group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-ice-100 dark:bg-ice-900 dark:border-ice-800" style="transition-delay: 80ms;">
+        <div class="h-40 bg-ice-50 border-b-4 border-ember-500 flex items-center justify-center px-8">
+          <img src="assets/logo-value.png" alt="Sigla Value" class="max-h-16 max-w-full object-contain">
+        </div>
+        <div class="p-7">
+          <h3 class="text-xl font-bold text-ice-950 dark:text-ice-50">Distribuitor Unic Value</h3>
+          <p class="mt-2 text-ice-900/70 dark:text-ice-100/70 leading-relaxed">
+            Distribuitor unic Value pentru Brăila și Galați — acces direct la stoc și prețuri competitive pentru clienții noștri.
+          </p>
+          <span class="mt-4 inline-flex items-center gap-2 text-ember-600 font-semibold group-hover:gap-3 transition-all">
+            Vezi pagina Value <i class="fa-solid fa-arrow-right text-sm"></i>
+          </span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Secondary partners — understated, continuously-scrolling logo strip -->
+    <div class="reveal mt-14 pt-10 border-t border-ice-200/70 dark:border-ice-800 text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-ice-900/50 dark:text-ice-300/50">Lucrăm și cu</p>
+      <!-- TODO: add Platinium's logo here (both loop passes below) once we have a proper high-res version -->
+      <div class="logo-marquee mt-6">
+        <div class="logo-marquee-track">
+          {% for logo in partners.secondaryLogos %}
+          <img src="{{ logo.file }}" alt="{{ logo.alt }}" class="h-8 sm:h-10 w-auto object-contain mx-8 sm:mx-12 opacity-70 hover:opacity-100 transition-opacity dark:bg-white dark:p-1.5 dark:rounded-md">
+          {% endfor %}
+          {% for logo in partners.secondaryLogos %}
+          <img src="{{ logo.file }}" alt="" aria-hidden="true" class="h-8 sm:h-10 w-auto object-contain mx-8 sm:mx-12 opacity-70 hover:opacity-100 transition-opacity dark:bg-white dark:p-1.5 dark:rounded-md">
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!-- PORTFOLIO / SOCIAL PROOF      -->
+<!-- ============================= -->
+<section id="portfolio" class="py-20 sm:py-28 bg-ice-50/60 dark:bg-ice-950">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <span class="text-ice-600 dark:text-ice-300 font-semibold uppercase tracking-wider text-sm">Portofoliu</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-ice-950 dark:text-ice-50">Lucrări Recente</h2>
+      <p class="mt-4 text-ice-900/70 dark:text-ice-100/70 text-lg">
+        Vezi cele mai recente proiecte și noutăți direct de pe pagina noastră de Facebook.
+      </p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!--
+        LIVE Facebook Page Plugin — pulls the real, current timeline
+        automatically. Points at facebook.com/profile.php?id=100083597462753.
+      -->
+      <div class="reveal bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl overflow-hidden shadow-sm flex items-center justify-center">
+        <iframe
+          title="Pagina de Facebook {{ site.companyName }}"
+          src="{{ site.facebookPagePluginSrc }}"
+          width="100%" height="480" style="border:none;overflow:hidden;max-width:100%;" scrolling="no" frameborder="0"
+          allowfullscreen="true" loading="lazy"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+      </div>
+
+      <!-- Real project, real photo — from Caloric's own Facebook page (montaj pompă de căldură + boiler) -->
+      <div class="reveal bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl overflow-hidden shadow-sm" style="transition-delay: 80ms;">
+        <img src="assets/portfolio-pompa-caldura.jpg" alt="Instalație pompă de căldură cu boiler pentru apă caldă menajeră, montată de Caloric" class="w-full aspect-[4/3] object-cover">
+        <div class="p-6">
+          <h3 class="font-bold text-ice-950 dark:text-ice-50">Pompe de Căldură</h3>
+          <p class="mt-2 text-sm text-ice-900/70 dark:text-ice-100/70 leading-relaxed">
+            Alternativa modernă la centrala clasică: fără gaze, fără poluare, consum redus. Merge cu calorifere sau încălzire în pardoseală, asigură apă caldă menajeră și poate face și răcire pe timp de vară.
+          </p>
+        </div>
+      </div>
+
+      <!-- Real project, real photo — from Caloric's own Facebook page (vitrină + cameră frig, florărie) -->
+      <div class="reveal bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl overflow-hidden shadow-sm" style="transition-delay: 160ms;">
+        <img src="assets/portfolio-vitrina-flori.jpg" alt="Vitrină frigorifică personalizată pentru o florărie, instalată de Caloric" class="w-full aspect-[4/3] object-cover">
+        <div class="p-6">
+          <h3 class="font-bold text-ice-950 dark:text-ice-50">Vitrine Frigorifice pentru Comerț</h3>
+          <p class="mt-2 text-sm text-ice-900/70 dark:text-ice-100/70 leading-relaxed">
+            Soluții personalizate de refrigerare pentru florării, magazine și HoReCa: vitrine și camere frig care păstrează temperatura și umiditatea optime pentru flori, băuturi sau produse proaspete.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <a href="{{ site.facebookUrl }}" target="_blank" rel="noopener" class="inline-flex items-center gap-3 bg-[#1877F2] hover:bg-[#1461cf] text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-blue-900/10 transition-colors">
+        <i class="fa-brands fa-facebook text-xl"></i>
+        Urmărește-ne pe Facebook
+      </a>
+    </div>
+  </div>
+</section>
+
+{% include "partials/contact.njk" %}

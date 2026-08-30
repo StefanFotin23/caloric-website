@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Climatizare Rezidențială",
+    "shortText": "Face cald iarna, răcoare vara — montaj rapid, fără renovări, control complet de pe telefon.",
+    "modalText": "Face cald iarna, răcoare vara — o singură investiție, un singur aparat. Montaj, punere în funcțiune și service pentru gama completă Daikin, de la modele eficiente de bază până la seriile premium cu purificare și umidificare a aerului. Îl controlezi complet din aplicația de telefon — temperatură, program, moduri — de oriunde ești. În poză: Daikin Perfera W, unul dintre modelele pe care le montăm cel mai des — eficiență până la A+++ la răcire și încălzire.",
+    "image": "assets/daikin-perfera-w.jpg",
+    "imageAlt": "Aparat de aer condiționat Daikin Perfera W, montat pe perete",
+    "modalImages": [
+      { "src": "assets/daikin-perfera-w.jpg", "alt": "Aparat de aer condiționat Daikin Perfera W, montat pe perete", "tag": null }
+    ]
+  },
+  {
+    "title": "VRV / VRF Comercial",
+    "shortText": "Sisteme centralizate Daikin pentru birouri și clădiri mari.",
+    "modalText": "Sisteme centralizate Daikin pentru birouri, hoteluri și clădiri comerciale — o singură rețea de agent frigorific poate deservi zeci de unități interioare, fiecare controlată independent. Poze și date tehnice complete, în curând.",
+    "image": "https://images.unsplash.com/photo-1768677432858-b9a8608dd849?auto=format&fit=crop&w=600&q=80",
+    "imageAlt": "Sistem VRV Daikin pentru o clădire comercială",
+    "modalImages": null
+  },
+  {
+    "title": "Pompe de Căldură Altherma",
+    "shortText": "Soluția Daikin pentru renovări fără bătăi de cap: funcționează cu caloriferele pe care le ai deja și acoperă confortabil sarcini termice mari.",
+    "modalText": "Alege automat modul cel mai economic de funcționare, în funcție de vreme și de necesarul de căldură al casei tale. Se instalează rapid, fără să schimbi conductele existente.",
+    "image": "assets/daikin-altherma-hybrid.jpg",
+    "imageAlt": "Pompă de căldură Daikin Altherma, unitate interioară",
+    "modalImages": [
+      { "src": "assets/daikin-altherma-hybrid.jpg", "alt": "Pompă de căldură Daikin Altherma, unitate interioară", "tag": null },
+      { "src": "assets/portfolio-pompa-caldura.jpg", "alt": "Instalație reală de pompă de căldură montată de Caloric", "tag": "Instalat de Noi" }
+    ]
+  }
+]

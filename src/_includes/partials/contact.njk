@@ -1,0 +1,120 @@
+{#
+  Shared contact/booking section (map + WhatsApp + contact cards + lead
+  form) — byte-identical across all 3 pages before this refactor except for
+  the form's hidden "subject" field, which is what lets Stefan tell from the
+  inbox which page a lead came from. Pass formSubject from the page.
+#}
+<section id="contact" class="py-20 sm:py-28 bg-ice-950 text-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <span class="text-ember-400 font-semibold uppercase tracking-wider text-sm">Contact</span>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold">Cere o Ofertă Gratuită</h2>
+      <p class="mt-4 text-ice-100/70 text-lg">
+        Completează formularul sau scrie-ne direct pe WhatsApp — răspundem rapid.
+      </p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+
+      <!-- LEFT COLUMN: Location & direct contact -->
+      <div class="reveal flex flex-col gap-6">
+
+        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+          <iframe
+            title="Locație {{ site.companyName }} - {{ site.address }}"
+            src="{{ site.mapEmbedSrc }}"
+            width="100%"
+            height="320"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <a href="{{ site.whatsappHref }}" target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1fbd5a] text-white font-semibold text-lg px-6 py-4 rounded-xl shadow-lg shadow-green-900/20 transition-all hover:-translate-y-0.5">
+          <i class="fa-brands fa-whatsapp text-2xl"></i>
+          Scrie-ne pe WhatsApp
+        </a>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+            <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
+              <i class="fa-solid fa-phone"></i> Telefon
+            </div>
+            <p class="mt-2 text-white/90"><a href="{{ site.phoneHref }}" class="hover:text-ice-300 transition-colors">{{ site.phone }}</a></p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+            <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
+              <i class="fa-solid fa-envelope"></i> Email
+            </div>
+            <p class="mt-2 text-white/90"><a href="mailto:{{ site.email }}" class="hover:text-ice-300 transition-colors">{{ site.email }}</a></p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+            <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
+              <i class="fa-solid fa-location-dot"></i> Adresă
+            </div>
+            <p class="mt-2 text-white/90">{{ site.address }}</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+            <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
+              <i class="fa-solid fa-clock"></i> Program
+            </div>
+            <p class="mt-2 text-white/90">{{ site.hours.weekdays }}<br>{{ site.hours.weekend }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Lead generation form -->
+      <div class="reveal bg-white text-ice-950 dark:text-ice-50 rounded-2xl p-6 sm:p-8 shadow-2xl dark:bg-ice-900" style="transition-delay: 100ms;">
+        <form id="quote-form" action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-5">
+
+          <input type="hidden" name="access_key" value="{{ site.web3formsAccessKey }}">
+          <input type="hidden" name="subject" value="{{ formSubject }}">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+          <div>
+            <label for="name" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Nume</label>
+            <input type="text" id="name" name="name" required placeholder="Numele tău"
+                   class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all">
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Număr de telefon</label>
+            <input type="tel" id="phone" name="phone" required placeholder="07xx xxx xxx"
+                   class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all">
+          </div>
+
+          <div>
+            <label for="city" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Oraș</label>
+            <select id="city" name="city" required
+                    class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all bg-white">
+              <option value="Braila" selected>Brăila</option>
+              <option value="Galati">Galați</option>
+              <option value="Tulcea">Tulcea</option>
+              <option value="Other">Altul</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="problem" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Descrierea problemei</label>
+            <textarea id="problem" name="problem" rows="4" required placeholder="Spune-ne pe scurt de ce ai nevoie..."
+                      class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all resize-none"></textarea>
+          </div>
+
+          <div class="h-captcha" data-captcha="true"></div>
+
+          <button type="submit"
+                  class="mt-2 inline-flex items-center justify-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold text-lg px-6 py-4 rounded-xl shadow-lg shadow-ember-900/20 transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span id="submit-label">Trimite Cererea</span>
+          </button>
+
+          <p id="form-result" class="text-sm font-medium text-center hidden"></p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
