@@ -5,6 +5,12 @@
 //
 // Available in any template as {{ site.xxx }}.
 module.exports = {
+  // Computed at build time — used for sitemap.xml's <lastmod> (optimization
+  // audit item 1.3). Not per-page granular (Eleventy's own `page.date`
+  // would be per-source-file, but sitemap.njk lists these 3 URLs by hand,
+  // not from a collection) — good enough to tell crawlers "this was built
+  // recently", refreshes automatically on every `npm run build`.
+  buildDate: new Date().toISOString().slice(0, 10),
   // Canonical URL of the deployed site — the ONE place this is defined.
   // Used by canonical <link>, Open Graph/Twitter og:url, and sitemap.xml/
   // robots.txt. Update this single value (no trailing slash) once caloric.ro
@@ -25,6 +31,14 @@ module.exports = {
     weekdays: "Luni - Vineri: 08:00 - 17:00",
     weekend: "Sâmbătă - Duminică: Închis",
   },
+  // Județele acoperite (zonă apropiată + zonă extinsă, vezi coverage-map.njk)
+  // — folosite atât în JSON-LD (areaServed) cât și, din 2026-08-31, ca text
+  // vizibil lângă harta de acoperire (optimization audit item 4.2).
+  areaServed: [
+    "Brăila", "Galați", "Vrancea", "Buzău", "Vaslui", "Ialomița", "Tulcea",
+    "Ilfov", "București", "Călărași", "Constanța", "Iași", "Brașov",
+    "Argeș", "Bacău", "Dâmbovița", "Prahova", "Covasna", "Neamț", "Giurgiu",
+  ],
   facebookUrl: "https://www.facebook.com/people/Caloric/100083597462753/",
   facebookPagePluginSrc:
     "https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100083597462753&tabs=timeline&width=360&height=480&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false",

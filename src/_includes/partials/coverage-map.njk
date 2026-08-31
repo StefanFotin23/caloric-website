@@ -13,6 +13,15 @@
   legenda de jos") — just the map image, section padding for breathing room
   against the sections above/below.
 
+  A visible county-list paragraph was added below the image on 2026-08-31
+  (optimization audit item 4.2) and then REMOVED the same day at Stefan's
+  request ("langa harta de acoperire nu vreau text... nu am nevoie sa
+  insiruim toate orasele in acel text separat") — he wants just the map
+  image, full stop, same as his original 2026-08-30 call. Don't re-add a
+  text list here without him asking again. (site.areaServed — the county
+  list itself — still lives in src/_data/site.js and still feeds the
+  JSON-LD areaServed field; only the on-page visible text was reverted.)
+
   Tiers (see the SVG's own <desc> for the full county list):
     Brăila         — sediul nostru (ember-500)
     Zonă apropiată — intervenție rapidă (ice-400 fill in the map)

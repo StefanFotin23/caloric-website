@@ -83,13 +83,13 @@
 
           <div>
             <label for="name" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Nume</label>
-            <input type="text" id="name" name="name" required placeholder="Numele tău"
+            <input type="text" id="name" name="name" required autocomplete="name" placeholder="Numele tău"
                    class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all">
           </div>
 
           <div>
             <label for="phone" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Număr de telefon</label>
-            <input type="tel" id="phone" name="phone" required placeholder="07xx xxx xxx"
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="07xx xxx xxx"
                    class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all">
           </div>
 
@@ -101,7 +101,7 @@
               every județ we actually cover, grouped by zonă, instead of the
               old 3-city + "Altul" list.
             #}
-            <select id="city" name="city" required
+            <select id="city" name="city" required autocomplete="address-level2"
                     class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all bg-white">
               <option value="Braila" selected>Brăila</option>
               <optgroup label="Zonă apropiată">

@@ -1,0 +1,15 @@
+{#
+  Floating WhatsApp button (optimization audit item 3.3, 2026-08-31) —
+  previously the WhatsApp link only existed inside the Contact section, at
+  the bottom of the page. This is a fixed bottom-right button, visible on
+  every scroll position, common/high-converting pattern for local-service
+  sites in Romania. Uses the same site.whatsappHref as the Contact section.
+
+  Hidden automatically while the GDPR consent banner is showing (via the
+  :has() rule in input.css) so the two don't visually collide in the same
+  corner — no JS needed for that.
+#}
+<a id="whatsapp-float" href="{{ site.whatsappHref }}" target="_blank" rel="noopener" aria-label="Scrie-ne pe WhatsApp"
+   class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1fbd5a] text-white flex items-center justify-center shadow-xl shadow-green-900/30 transition-all hover:-translate-y-0.5">
+  <i class="fa-brands fa-whatsapp text-2xl"></i>
+</a>

@@ -50,6 +50,11 @@
     "postalCode": "810091",
     "addressCountry": "RO"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.2559,
+    "longitude": 27.9617
+  },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
@@ -58,9 +63,41 @@
       "closes": "17:00"
     }
   ],
-  "sameAs": ["{{ site.facebookUrl }}"]
+  "sameAs": ["{{ site.facebookUrl }}"],
+  "areaServed": [
+    {% for county in site.areaServed %}
+    { "@type": "AdministrativeArea", "name": "{{ county }}" }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicii Caloric",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Climatizare", "areaServed": "Brăila" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Încălzire și Pompe de Căldură", "areaServed": "Brăila" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ventilație cu Recuperare de Căldură", "areaServed": "Brăila" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Refrigerare Comercială și Industrială", "areaServed": "Brăila" } }
+    ]
+  }
 }
 </script>
+
+{% if breadcrumb %}
+<!-- BreadcrumbList — added on partner pages only (see page front matter's
+     `breadcrumb` array), helps crawlers understand daikin.html/value.html
+     sit under the homepage rather than being orphaned pages. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for b in breadcrumb %}
+    { "@type": "ListItem", "position": {{ loop.index }}, "name": "{{ b.name }}", "item": "{{ site.baseUrl }}/{{ b.url }}" }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
 
 <!-- color-scheme: light dark + real dark: styling (see tailwind.config.js
      and assets/css/site.css) tells browsers/OSes with dark mode (Android
@@ -96,6 +133,7 @@
 {{ content | safe }}
 
 {% include "partials/footer.njk" %}
+{% include "partials/whatsapp-float.njk" %}
 {% include "partials/product-modal.njk" %}
 {% include "partials/consent-banner.njk" %}
 

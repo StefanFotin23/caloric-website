@@ -1,7 +1,69 @@
-{# Bottom bar — identical on all 3 pages. #}
-<div class="bg-ice-950 border-t border-white/10 py-6">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-ice-100/60">
-    <p>&copy; <span id="year"></span> {{ site.companyName }}. Toate drepturile rezervate.</p>
-    <p>Brăila, România</p>
+{#
+  Site footer — expanded 2026-08-31 (optimization audit item 3.1/2.2:
+  "Footer foarte gol — fără telefon/adresă repetate, fără linkuri către
+  paginile Daikin/Value, fără Facebook"). Was previously just a one-line
+  copyright + city bar. Now 3 columns (contact / linkuri rapide / social)
+  above that same bottom bar. Shared across all 3 pages like nav.njk, so it
+  needs the same isHome/prefix pattern nav.njk uses to build same-page vs.
+  cross-page anchor links.
+#}
+{% set homeHref = "#home" if isHome else "index.html" %}
+{% set prefix = "" if isHome else "index.html" %}
+<footer class="bg-ice-950 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14 grid grid-cols-1 sm:grid-cols-3 gap-10 text-sm">
+
+    <!-- Contact (NAP — repeated here for SEO/trust, same data as the Contact section) -->
+    <div>
+      <div class="flex items-center gap-2 mb-4">
+        <img src="assets/logo-caloric.png" alt="Sigla Caloric" class="w-8 h-8 shrink-0 object-contain">
+        <span class="text-lg font-extrabold text-white">{{ site.companyName }}</span>
+      </div>
+      <ul class="flex flex-col gap-2.5 text-ice-100/60">
+        <li class="flex items-start gap-2.5">
+          <i class="fa-solid fa-location-dot mt-0.5 shrink-0 text-ice-400"></i>
+          <span>{{ site.addressFull }}</span>
+        </li>
+        <li class="flex items-center gap-2.5">
+          <i class="fa-solid fa-phone shrink-0 text-ice-400"></i>
+          <a href="{{ site.phoneHref }}" class="hover:text-white transition-colors">{{ site.phone }}</a>
+        </li>
+        <li class="flex items-center gap-2.5">
+          <i class="fa-solid fa-envelope shrink-0 text-ice-400"></i>
+          <a href="mailto:{{ site.email }}" class="hover:text-white transition-colors">{{ site.email }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Quick links -->
+    <div>
+      <p class="text-white font-semibold mb-4">Linkuri Rapide</p>
+      <ul class="flex flex-col gap-2.5 text-ice-100/60">
+        <li><a href="{{ prefix }}#services" class="hover:text-white transition-colors">Servicii</a></li>
+        <li><a href="{{ prefix }}#parteneri" class="hover:text-white transition-colors">Parteneri</a></li>
+        <li><a href="{{ prefix }}#portfolio" class="hover:text-white transition-colors">Portofoliu</a></li>
+        <li><a href="{{ prefix }}#acoperire" class="hover:text-white transition-colors">Zonă de Acoperire</a></li>
+        <li><a href="{{ prefix }}#contact" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Partners + social -->
+    <div>
+      <p class="text-white font-semibold mb-4">Parteneri</p>
+      <ul class="flex flex-col gap-2.5 text-ice-100/60">
+        <li><a href="daikin.html" class="hover:text-white transition-colors">Daikin — Partener Oficial</a></li>
+        <li><a href="value.html" class="hover:text-white transition-colors">Value — Distribuitor Unic</a></li>
+      </ul>
+      <a href="{{ site.facebookUrl }}" target="_blank" rel="noopener" aria-label="Pagina de Facebook Caloric"
+         class="mt-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-ice-100/60 hover:text-white hover:bg-white/10 transition-colors">
+        <i class="fa-brands fa-facebook text-lg"></i>
+      </a>
+    </div>
   </div>
-</div>
+
+  <div class="border-t border-white/10 py-6">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-ice-100/60">
+      <p>&copy; <span id="year"></span> {{ site.companyName }}. Toate drepturile rezervate.</p>
+      <p>Brăila, România</p>
+    </div>
+  </div>
+</footer>

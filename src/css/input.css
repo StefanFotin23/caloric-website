@@ -161,7 +161,7 @@ body {
       rgba(15, 26, 46, 0.55) 45%,
       rgba(15, 26, 46, 0.85) 100%
     ),
-    url("https://images.unsplash.com/photo-1642749776312-aa42ce20c9f5?auto=format&fit=crop&w=1600&q=80");
+    url("../assets/hero-braila-service.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -174,7 +174,7 @@ body {
       rgba(15, 42, 80, 0.55) 45%,
       rgba(15, 26, 46, 0.88) 100%
     ),
-    url("https://images.unsplash.com/photo-1698479603408-1a66a6d9e80f?auto=format&fit=crop&w=1600&q=80");
+    url("../assets/hero-daikin.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -187,7 +187,7 @@ body {
       rgba(124, 42, 10, 0.55) 45%,
       rgba(15, 26, 46, 0.88) 100%
     ),
-    url("https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80");
+    url("../assets/hero-value.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -219,4 +219,12 @@ body {
   .logo-marquee-track {
     animation: none;
   }
+}
+
+/* Floating WhatsApp button (optimization audit item 3.3, 2026-08-31) — hide
+   it while the GDPR consent banner is showing, so the two fixed-bottom
+   elements never overlap in the bottom-right corner. :has() is supported in
+   every evergreen browser as of 2026; no JS toggle needed for this. */
+body:has(#consent-banner:not(.hidden)) #whatsapp-float {
+  display: none;
 }
