@@ -128,9 +128,13 @@
 </head>
 <body class="bg-white text-ice-950 dark:text-ice-50 antialiased dark:bg-ice-950">
 
+<a href="#main-content" class="skip-link">Sari la conținut</a>
+
 {% include "partials/nav.njk" %}
 
+<main id="main-content">
 {{ content | safe }}
+</main>
 
 {% include "partials/footer.njk" %}
 {% include "partials/whatsapp-float.njk" %}

@@ -15,6 +15,26 @@ html {
   color-scheme: light dark;
 }
 
+/* Skip-to-content link (accessibility pass, 2026-08-31) — invisible until a
+   keyboard user tabs to it (first focusable element on every page), then
+   pinned top-left above the navbar/modal so it's never obscured. */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  background: #ffffff;
+  color: #0f1a2e;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 26, 46, 0.3);
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
 /*
  * Inter, self-hosted (2026-08-30, GDPR pass). Previously loaded from
  * fonts.googleapis.com/fonts.gstatic.com, which sends every visitor's IP
@@ -151,6 +171,14 @@ body {
 .reveal.in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Home hero background photo + gradient overlay */

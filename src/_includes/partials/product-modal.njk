@@ -12,11 +12,11 @@
   then wrap at that same content width for free — no separate max-width
   needed on them.
 #}
-<div id="product-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6" aria-hidden="true">
+<div id="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6" aria-hidden="true">
   <div id="product-modal-backdrop" class="absolute inset-0 bg-ice-950/70 backdrop-blur-sm"></div>
   <div class="relative bg-white dark:bg-ice-900 rounded-2xl shadow-2xl w-fit max-w-[92vw] max-h-[90vh] overflow-y-auto">
     <button id="product-modal-close" type="button" aria-label="Închide" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white shadow-md dark:bg-ice-800 flex items-center justify-center text-ice-900 dark:text-ice-200 hover:bg-ice-50 transition-colors dark:hover:bg-ice-800 z-10">
-      <i class="fa-solid fa-xmark text-lg"></i>
+      <i aria-hidden="true" class="fa-solid fa-xmark text-lg"></i>
     </button>
     <div class="p-6 sm:p-8">
       <div id="product-modal-gallery" class="flex flex-wrap items-start justify-center gap-4"></div>
@@ -27,6 +27,6 @@
 </div>
 
 <!-- Full-size image zoom, opened from inside the product modal -->
-<div id="image-zoom-overlay" class="fixed inset-0 z-[70] hidden items-center justify-center p-4 sm:p-8 bg-ice-950/90 cursor-zoom-out" aria-hidden="true">
+<div id="image-zoom-overlay" role="dialog" aria-modal="true" aria-label="Imagine mărită" tabindex="-1" class="fixed inset-0 z-[70] hidden items-center justify-center p-4 sm:p-8 bg-ice-950/90 cursor-zoom-out" aria-hidden="true">
   <img id="image-zoom-img" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
 </div>

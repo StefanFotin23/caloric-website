@@ -33,6 +33,7 @@
   function closeMobileMenu() {
     if (!mobileMenu) return;
     mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('inert', '');
     if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
     if (menuIcon) { menuIcon.classList.remove('fa-xmark'); menuIcon.classList.add('fa-bars'); }
   }
@@ -40,12 +41,16 @@
   function toggleMobileMenu() {
     if (!mobileMenu) return;
     var isOpen = mobileMenu.classList.toggle('open');
+    if (isOpen) mobileMenu.removeAttribute('inert'); else mobileMenu.setAttribute('inert', '');
     if (menuBtn) menuBtn.setAttribute('aria-expanded', String(isOpen));
     if (menuIcon) {
       menuIcon.classList.toggle('fa-bars', !isOpen);
       menuIcon.classList.toggle('fa-xmark', isOpen);
     }
   }
+
+  // Start closed/inert — matches the collapsed max-height:0 state in CSS.
+  if (mobileMenu) mobileMenu.setAttribute('inert', '');
 
   if (menuBtn) menuBtn.addEventListener('click', toggleMobileMenu);
   document.querySelectorAll('.mobile-link').forEach(function (link) {
@@ -131,6 +136,26 @@
     var zoomOverlay = document.getElementById('image-zoom-overlay');
     var zoomImg = document.getElementById('image-zoom-img');
 
+    // ---- Focus containment (accessibility pass, 2026-08-31) -------------
+    // Rather than hand-rolling a Tab-cycling trap (easy to get subtly wrong
+    // and itself risks a "no keyboard trap" violation if it's too strict),
+    // mark everything OUTSIDE whichever dialog is open as `inert`. Inert
+    // elements and their descendants can't be focused, tabbed into, or
+    // read by assistive tech — so Tab naturally stays confined to the open
+    // dialog's own controls without any manual key interception. Widely
+    // supported in evergreen browsers; a no-op elsewhere (nothing breaks).
+    var BG_SELECTORS = ['#navbar', '#main-content', 'footer', '#whatsapp-float', '#consent-banner'];
+    var modalLastFocused = null;
+    var zoomLastFocused = null;
+
+    var setBackgroundInert = function (on) {
+      BG_SELECTORS.forEach(function (sel) {
+        var el = document.querySelector(sel);
+        if (!el) return;
+        if (on) el.setAttribute('inert', ''); else el.removeAttribute('inert');
+      });
+    };
+
     var openProductModal = function (card) {
       var images = JSON.parse(card.dataset.modalImages || '[]');
       productModalTitle.textContent = card.dataset.modalTitle || '';
@@ -152,43 +177,64 @@
         var pictureTag = webpSrc
           ? '<picture><source srcset="' + webpSrc + '" type="image/webp">' + imgTag + '</picture>'
           : imgTag;
-        return '<div class="relative rounded-xl overflow-hidden border border-ice-100 dark:bg-ice-900 dark:border-ice-800 cursor-zoom-in modal-zoom-trigger" data-full="' + img.src + '" data-alt="' + img.alt + '">'
+        return '<div class="relative rounded-xl overflow-hidden border border-ice-100 dark:bg-ice-900 dark:border-ice-800 cursor-zoom-in modal-zoom-trigger" role="button" tabindex="0" aria-label="Mărește imaginea" data-full="' + img.src + '" data-alt="' + img.alt + '">'
           + pictureTag
           + (img.tag ? '<span class="absolute top-2 left-2 bg-ember-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow">' + img.tag + '</span>' : '')
           + '</div>';
       }).join('');
+      modalLastFocused = document.activeElement;
       productModal.classList.remove('hidden'); productModal.classList.add('flex');
       productModal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('overflow-hidden');
+      setBackgroundInert(true);
+      if (productModalClose) productModalClose.focus();
     };
 
     var closeProductModal = function () {
       productModal.classList.add('hidden'); productModal.classList.remove('flex');
       productModal.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('overflow-hidden');
+      setBackgroundInert(false);
+      if (modalLastFocused && typeof modalLastFocused.focus === 'function') modalLastFocused.focus();
+    };
+
+    var activateOnKey = function (handler) {
+      return function (e) {
+        if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+        e.preventDefault();
+        handler(e);
+      };
     };
 
     document.querySelectorAll('.product-card[data-modal-title]').forEach(function (card) {
       card.addEventListener('click', function () { openProductModal(card); });
+      card.addEventListener('keydown', activateOnKey(function () { openProductModal(card); }));
     });
     if (productModalClose) productModalClose.addEventListener('click', closeProductModal);
     if (productModalBackdrop) productModalBackdrop.addEventListener('click', closeProductModal);
 
-    var openZoom = function (src, alt) {
+    var openZoom = function (src, alt, trigger) {
+      zoomLastFocused = trigger || document.activeElement;
       zoomImg.src = src; zoomImg.alt = alt || '';
       zoomOverlay.classList.remove('hidden'); zoomOverlay.classList.add('flex');
       zoomOverlay.setAttribute('aria-hidden', 'false');
+      zoomOverlay.focus();
     };
     var closeZoom = function () {
       zoomOverlay.classList.add('hidden'); zoomOverlay.classList.remove('flex');
       zoomOverlay.setAttribute('aria-hidden', 'true');
+      if (zoomLastFocused && typeof zoomLastFocused.focus === 'function') zoomLastFocused.focus();
     };
 
     if (productModalGallery) {
       productModalGallery.addEventListener('click', function (e) {
         var trigger = e.target.closest('.modal-zoom-trigger');
-        if (trigger) openZoom(trigger.dataset.full, trigger.dataset.alt);
+        if (trigger) openZoom(trigger.dataset.full, trigger.dataset.alt, trigger);
       });
+      productModalGallery.addEventListener('keydown', activateOnKey(function (e) {
+        var trigger = e.target.closest('.modal-zoom-trigger');
+        if (trigger) openZoom(trigger.dataset.full, trigger.dataset.alt, trigger);
+      }));
     }
     if (zoomOverlay) zoomOverlay.addEventListener('click', closeZoom);
 

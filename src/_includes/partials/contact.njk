@@ -30,10 +30,10 @@
                data-embed-src="{{ site.mapEmbedSrc }}"
                data-embed-title="Locație {{ site.companyName }} - {{ site.address }}">
             <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center">
-              <i class="fa-solid fa-map-location-dot text-3xl text-ice-300"></i>
+              <i aria-hidden="true" class="fa-solid fa-map-location-dot text-3xl text-ice-300"></i>
               <p class="text-white/70 text-sm max-w-xs">Harta Google se încarcă doar dacă alegi tu — nimic nu pleacă spre Google până apeși butonul.</p>
               <button type="button" class="embed-gate-btn inline-flex items-center gap-2 bg-ice-600 hover:bg-ice-500 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors">
-                <i class="fa-solid fa-map"></i> Încarcă Harta
+                <i aria-hidden="true" class="fa-solid fa-map"></i> Încarcă Harta
               </button>
             </div>
           </div>
@@ -41,32 +41,32 @@
 
         <a href="{{ site.whatsappHref }}" target="_blank" rel="noopener"
            class="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1fbd5a] text-white font-semibold text-lg px-6 py-4 rounded-xl shadow-lg shadow-green-900/20 transition-all hover:-translate-y-0.5">
-          <i class="fa-brands fa-whatsapp text-2xl"></i>
+          <i aria-hidden="true" class="fa-brands fa-whatsapp text-2xl"></i>
           Scrie-ne pe WhatsApp
         </a>
 
         <div class="grid sm:grid-cols-2 gap-4">
           <div class="bg-white/5 border border-white/10 rounded-xl p-5">
             <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
-              <i class="fa-solid fa-phone"></i> Telefon
+              <i aria-hidden="true" class="fa-solid fa-phone"></i> Telefon
             </div>
             <p class="mt-2 text-white/90"><a href="{{ site.phoneHref }}" class="hover:text-ice-300 transition-colors">{{ site.phone }}</a></p>
           </div>
           <div class="bg-white/5 border border-white/10 rounded-xl p-5">
             <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
-              <i class="fa-solid fa-envelope"></i> Email
+              <i aria-hidden="true" class="fa-solid fa-envelope"></i> Email
             </div>
             <p class="mt-2 text-white/90"><a href="mailto:{{ site.email }}" class="hover:text-ice-300 transition-colors">{{ site.email }}</a></p>
           </div>
           <div class="bg-white/5 border border-white/10 rounded-xl p-5">
             <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
-              <i class="fa-solid fa-location-dot"></i> Adresă
+              <i aria-hidden="true" class="fa-solid fa-location-dot"></i> Adresă
             </div>
             <p class="mt-2 text-white/90">{{ site.address }}</p>
           </div>
           <div class="bg-white/5 border border-white/10 rounded-xl p-5">
             <div class="flex items-center gap-2 text-ice-300 font-semibold text-sm uppercase tracking-wide">
-              <i class="fa-solid fa-clock"></i> Program
+              <i aria-hidden="true" class="fa-solid fa-clock"></i> Program
             </div>
             <p class="mt-2 text-white/90">{{ site.hours.weekdays }}<br>{{ site.hours.weekend }}</p>
           </div>
@@ -141,11 +141,11 @@
 
           <button type="submit"
                   class="mt-2 inline-flex items-center justify-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold text-lg px-6 py-4 rounded-xl shadow-lg shadow-ember-900/20 transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0">
-            <i class="fa-solid fa-paper-plane"></i>
+            <i aria-hidden="true" class="fa-solid fa-paper-plane"></i>
             <span id="submit-label">Trimite Cererea</span>
           </button>
 
-          <p id="form-result" class="text-sm font-medium text-center hidden"></p>
+          <p id="form-result" role="status" aria-live="polite" class="text-sm font-medium text-center hidden"></p>
         </form>
       </div>
 

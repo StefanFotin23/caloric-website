@@ -20,11 +20,11 @@
     </a>
 
     <ul class="hidden md:flex items-center gap-8 font-medium text-ice-900">
-      <li><a href="{{ homeHref }}" class="hover:text-ice-600 transition-colors">Acasă</a></li>
-      <li><a href="{{ prefix }}#services" class="hover:text-ice-600 transition-colors">Servicii</a></li>
-      <li><a href="{{ prefix }}#parteneri" class="{% if navActive == 'parteneri' %}text-ice-600{% else %}hover:text-ice-600 transition-colors{% endif %}">Parteneri</a></li>
-      <li><a href="{{ prefix }}#portfolio" class="hover:text-ice-600 transition-colors">Portofoliu</a></li>
-      <li><a href="{{ prefix }}#contact" class="hover:text-ice-600 transition-colors">Contact</a></li>
+      <li><a href="{{ homeHref }}" class="hover:text-ice-700 transition-colors">Acasă</a></li>
+      <li><a href="{{ prefix }}#services" class="hover:text-ice-700 transition-colors">Servicii</a></li>
+      <li><a href="{{ prefix }}#parteneri" class="{% if navActive == 'parteneri' %}text-ice-700{% else %}hover:text-ice-700 transition-colors{% endif %}">Parteneri</a></li>
+      <li><a href="{{ prefix }}#portfolio" class="hover:text-ice-700 transition-colors">Portofoliu</a></li>
+      <li><a href="{{ prefix }}#contact" class="hover:text-ice-700 transition-colors">Contact</a></li>
     </ul>
 
     <a href="{{ prefix }}#contact" class="hidden md:inline-flex items-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold px-5 py-2.5 rounded-lg shadow-sm transition-colors">
@@ -32,7 +32,7 @@
     </a>
 
     <button id="menu-btn" aria-label="Deschide meniul" aria-expanded="false" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-ice-950 hover:bg-ice-50 transition-colors">
-      <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+      <i aria-hidden="true" id="menu-icon" class="fa-solid fa-bars text-xl"></i>
     </button>
   </nav>
 
@@ -41,7 +41,7 @@
     <ul class="flex flex-col px-5 py-4 gap-1 font-medium text-ice-900">
       <li><a href="{{ homeHref }}" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Acasă</a></li>
       <li><a href="{{ prefix }}#services" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Servicii</a></li>
-      <li><a href="{{ prefix }}#parteneri" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50{% if navActive == 'parteneri' %} text-ice-600{% endif %}">Parteneri</a></li>
+      <li><a href="{{ prefix }}#parteneri" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50{% if navActive == 'parteneri' %} text-ice-700{% endif %}">Parteneri</a></li>
       <li><a href="{{ prefix }}#portfolio" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Portofoliu</a></li>
       <li><a href="{{ prefix }}#contact" class="mobile-link block py-2.5 px-2 rounded-lg hover:bg-ice-50">Contact</a></li>
       <li class="pt-2">

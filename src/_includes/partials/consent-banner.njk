@@ -12,11 +12,11 @@
   asymmetry is what actually creates legal exposure, not the presence of
   a banner. No pre-ticked boxes, no accept-by-default on dismiss.
 #}
-<div id="consent-banner" class="fixed bottom-0 inset-x-0 z-50 hidden px-4 pb-4">
+<div id="consent-banner" role="region" aria-label="Consimțământ pentru conținut extern" aria-live="polite" class="fixed bottom-0 inset-x-0 z-50 hidden px-4 pb-4">
   <div class="max-w-5xl mx-auto rounded-2xl border border-ice-200 dark:border-ice-800 bg-white dark:bg-ice-900 shadow-2xl p-5 sm:p-6">
     <div class="flex flex-col sm:flex-row sm:items-center gap-4">
       <div class="flex items-start gap-3 flex-1">
-        <i class="fa-solid fa-shield-halved text-ice-500 dark:text-ice-300 text-xl mt-0.5 shrink-0"></i>
+        <i aria-hidden="true" class="fa-solid fa-shield-halved text-ice-500 dark:text-ice-300 text-xl mt-0.5 shrink-0"></i>
         <p class="text-sm text-ice-900/80 dark:text-ice-100/80 leading-relaxed">
           Folosim conținut de la <strong>Google Maps</strong> și <strong>Facebook</strong> (harta din Contact și pagina de Facebook din Portofoliu). Le poți încărca automat de acum înainte, sau le încarci individual, oricând, direct din cardurile lor.
         </p>
