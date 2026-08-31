@@ -137,7 +137,7 @@
       productModalText.textContent = card.dataset.modalText || '';
       productModalGallery.innerHTML = images.map(function (img) {
         return '<div class="relative rounded-xl overflow-hidden border border-ice-100 dark:bg-ice-900 dark:border-ice-800 cursor-zoom-in modal-zoom-trigger" data-full="' + img.src + '" data-alt="' + img.alt + '">'
-          + '<img src="' + img.src + '" alt="' + img.alt + '" class="w-full aspect-[4/3] object-cover">'
+          + '<img src="' + img.src + '" alt="' + img.alt + '" loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover">'
           + (img.tag ? '<span class="absolute top-2 left-2 bg-ember-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow">' + img.tag + '</span>' : '')
           + '</div>';
       }).join('');

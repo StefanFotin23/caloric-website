@@ -5,6 +5,15 @@
 //
 // Available in any template as {{ site.xxx }}.
 module.exports = {
+  // Canonical URL of the deployed site — the ONE place this is defined.
+  // Used by canonical <link>, Open Graph/Twitter og:url, and sitemap.xml/
+  // robots.txt. Update this single value (no trailing slash) once caloric.ro
+  // DNS is recovered and the custom domain is wired up in GitHub Pages —
+  // everything downstream picks it up automatically.
+  baseUrl: "https://stefanfotin23.github.io/caloric-website",
+  // Social-preview image (WhatsApp/Facebook link cards) — 1200x630, cropped
+  // from the Perfera lifestyle photo (src/assets/daikin-perfera-w.jpg).
+  ogImage: "assets/og-image.jpg",
   companyName: "Caloric",
   phone: "+40 744 502 692",
   phoneHref: "tel:+40744502692",

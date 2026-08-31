@@ -19,7 +19,7 @@
 {% macro productCard(card, delay=0) %}
 {% set interactive = card.modalText | default(false) %}
 <div class="reveal group bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300{% if interactive %} product-card cursor-pointer{% endif %}"{% if delay %} style="transition-delay: {{ delay }}ms;"{% endif %}{% if interactive %} data-modal-title="{{ card.title }}" data-modal-text="{{ card.modalText }}" data-modal-images='{{ (card.modalImages or []) | dump | safe }}'{% endif %}>
-  <img src="{{ card.image }}" alt="{{ card.imageAlt }}" class="w-full aspect-[4/3] object-cover">
+  <img src="{{ card.image }}" alt="{{ card.imageAlt }}" loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover">
   <div class="p-5">
     <h4 class="font-bold text-ice-950 dark:text-ice-50">{{ card.title }}</h4>
     <p class="mt-2 text-sm text-ice-900/70 dark:text-ice-100/70 leading-relaxed">{{ card.shortText }}</p>

@@ -4,8 +4,10 @@ module.exports = function (eleventyConfig) {
   // through Eleventy's template engine.
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
-  // Custom 404 page (see src/404.njk) needs this so GitHub Pages serves it
-  // correctly — Eleventy would otherwise treat 404.html like any other page.
+  // Quiet build logs — one line per run instead of one per file.
+  // (Custom 404: src/404.njk just needs permalink: "404.html" like any
+  // other page — GitHub Pages auto-detects and serves that file for any
+  // unmatched path, no Eleventy-side config needed for it.)
   eleventyConfig.setQuietMode(true);
 
   return {

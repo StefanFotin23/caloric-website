@@ -30,3 +30,9 @@ env-local-notes.txt
 *.bak
 *.tmp
 *~
+
+# Staged for manual deletion — the device shell can't delete files directly,
+# so cleanup passes (legacy pre-refactor files, orphaned duplicates) move
+# things here instead of removing them. Safe to empty this folder yourself
+# any time; git never sees what's inside it.
+_to_delete/

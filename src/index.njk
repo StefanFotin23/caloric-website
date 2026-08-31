@@ -141,7 +141,7 @@ formSubject: "Cerere ofertă nouă - Caloric"
       <!-- Daikin card -->
       <a href="daikin.html" class="reveal group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-ice-100 dark:bg-ice-900 dark:border-ice-800">
         <div class="h-40 bg-ice-50 border-b-4 border-ice-600 flex items-center justify-center px-8">
-          <img src="assets/logo-daikin.png" alt="Sigla Daikin Business Partner" class="max-h-20 max-w-full object-contain">
+          <img src="assets/logo-daikin.png" alt="Sigla Daikin Business Partner" loading="lazy" decoding="async" class="max-h-20 max-w-full object-contain">
         </div>
         <div class="p-7">
           <h3 class="text-xl font-bold text-ice-950 dark:text-ice-50">Partener Oficial Daikin</h3>
@@ -157,7 +157,7 @@ formSubject: "Cerere ofertă nouă - Caloric"
       <!-- Value card -->
       <a href="value.html" class="reveal group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-ice-100 dark:bg-ice-900 dark:border-ice-800" style="transition-delay: 80ms;">
         <div class="h-40 bg-ice-50 border-b-4 border-ember-500 flex items-center justify-center px-8">
-          <img src="assets/logo-value.png" alt="Sigla Value" class="max-h-16 max-w-full object-contain">
+          <img src="assets/logo-value.png" alt="Sigla Value" loading="lazy" decoding="async" class="max-h-16 max-w-full object-contain">
         </div>
         <div class="p-7">
           <h3 class="text-xl font-bold text-ice-950 dark:text-ice-50">Distribuitor Unic Value</h3>
@@ -179,10 +179,10 @@ formSubject: "Cerere ofertă nouă - Caloric"
       <div class="logo-marquee mt-6">
         <div class="logo-marquee-track">
           {% for logo in partners.secondaryLogos %}
-          <img src="{{ logo.file }}" alt="{{ logo.alt }}" class="h-8 sm:h-10 w-auto object-contain mx-8 sm:mx-12 opacity-70 hover:opacity-100 transition-opacity dark:bg-white dark:p-1.5 dark:rounded-md">
+          <img src="{{ logo.file }}" alt="{{ logo.alt }}" loading="lazy" decoding="async" class="h-8 sm:h-10 w-auto object-contain mx-8 sm:mx-12 opacity-70 hover:opacity-100 transition-opacity dark:bg-white dark:p-1.5 dark:rounded-md">
           {% endfor %}
           {% for logo in partners.secondaryLogos %}
-          <img src="{{ logo.file }}" alt="" aria-hidden="true" class="h-8 sm:h-10 w-auto object-contain mx-8 sm:mx-12 opacity-70 hover:opacity-100 transition-opacity dark:bg-white dark:p-1.5 dark:rounded-md">
+          <img src="{{ logo.file }}" alt="" aria-hidden="true" loading="lazy" decoding="async" class="h-8 sm:h-10 w-auto object-contain mx-8 sm:mx-12 opacity-70 hover:opacity-100 transition-opacity dark:bg-white dark:p-1.5 dark:rounded-md">
           {% endfor %}
         </div>
       </div>
@@ -228,7 +228,7 @@ formSubject: "Cerere ofertă nouă - Caloric"
 
       <!-- Real project, real photo — from Caloric's own Facebook page (montaj pompă de căldură + boiler) -->
       <div class="reveal bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl overflow-hidden shadow-sm" style="transition-delay: 80ms;">
-        <img src="assets/portfolio-pompa-caldura.jpg" alt="Instalație pompă de căldură cu boiler pentru apă caldă menajeră, montată de Caloric" class="w-full aspect-[4/3] object-cover">
+        <img src="assets/portfolio-pompa-caldura.jpg" alt="Instalație pompă de căldură cu boiler pentru apă caldă menajeră, montată de Caloric" loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover">
         <div class="p-6">
           <h3 class="font-bold text-ice-950 dark:text-ice-50">Pompe de Căldură</h3>
           <p class="mt-2 text-sm text-ice-900/70 dark:text-ice-100/70 leading-relaxed">
@@ -239,7 +239,7 @@ formSubject: "Cerere ofertă nouă - Caloric"
 
       <!-- Real project, real photo — from Caloric's own Facebook page (vitrină + cameră frig, florărie) -->
       <div class="reveal bg-white border border-ice-100 dark:bg-ice-900 dark:border-ice-800 rounded-2xl overflow-hidden shadow-sm" style="transition-delay: 160ms;">
-        <img src="assets/portfolio-vitrina-flori.jpg" alt="Vitrină frigorifică personalizată pentru o florărie, instalată de Caloric" class="w-full aspect-[4/3] object-cover">
+        <img src="assets/portfolio-vitrina-flori.jpg" alt="Vitrină frigorifică personalizată pentru o florărie, instalată de Caloric" loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover">
         <div class="p-6">
           <h3 class="font-bold text-ice-950 dark:text-ice-50">Vitrine Frigorifice pentru Comerț</h3>
           <p class="mt-2 text-sm text-ice-900/70 dark:text-ice-100/70 leading-relaxed">
@@ -259,4 +259,5 @@ formSubject: "Cerere ofertă nouă - Caloric"
   </div>
 </section>
 
+{% include "partials/coverage-map.njk" %}
 {% include "partials/contact.njk" %}

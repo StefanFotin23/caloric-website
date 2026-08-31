@@ -48,6 +48,90 @@ body {
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
+/*
+ * Font Awesome, subsetted + self-hosted (2026-08-30, "itemi mici" pass).
+ * Previously loaded the full CDN stylesheet (cdnjs, all.min.css) which
+ * pulls in the complete solid webfont (~156KB woff2) plus the complete
+ * brands webfont (~118KB woff2) — ~274KB combined for the ~25 solid +
+ * 2 brand icons actually used anywhere on the site (checked by grepping
+ * every fa-* class across every .njk/.json file in src/). Subsetted with
+ * fonttools' pyftsubset down to just those glyphs: 4.1KB (solid) + 1.4KB
+ * (brands) — a ~98% reduction. Output as .woff (not .woff2) because the
+ * WOFF2 encoder needs the Python brotli extension, which isn't
+ * installable here (same registry/pip block as everywhere else in this
+ * project) — plain WOFF (zlib-based, stdlib-only) has effectively
+ * universal browser support and the size difference at 27 glyphs is a
+ * few hundred bytes, irrelevant either way.
+ *
+ * Only the base rules + the exact icon-content rules this site uses are
+ * reproduced below (no fa-spin/fa-2x/fa-ul/etc. utility classes — grepped
+ * confirmed none of those are used). If a new icon is ever added to the
+ * site, it needs a new @font-face-compatible glyph in the subset font +
+ * a new content rule here — it will NOT silently work by just adding a
+ * fa-* class, unlike when the site loaded the full CDN font.
+ */
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../fonts/fa-solid-900-subset.woff") format("woff");
+}
+@font-face {
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../fonts/fa-brands-400-subset.woff") format("woff");
+}
+.fa,
+.fa-brands,
+.fa-solid {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+.fa,
+.fa-solid {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+.fa-brands {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+}
+.fa-arrow-left::before { content: "\f060"; }
+.fa-arrow-right::before { content: "\f061"; }
+.fa-award::before { content: "\f559"; }
+.fa-bars::before { content: "\f0c9"; }
+.fa-bolt::before { content: "\f0e7"; }
+.fa-certificate::before { content: "\f0a3"; }
+.fa-clock::before { content: "\f017"; }
+.fa-envelope::before { content: "\f0e0"; }
+.fa-fire::before { content: "\f06d"; }
+.fa-industry::before { content: "\f275"; }
+.fa-leaf::before { content: "\f06c"; }
+.fa-location-dot::before { content: "\f3c5"; }
+.fa-map::before { content: "\f279"; }
+.fa-map-location-dot::before { content: "\f5a0"; }
+.fa-medal::before { content: "\f5a2"; }
+.fa-paper-plane::before { content: "\f1d8"; }
+.fa-phone::before { content: "\f095"; }
+.fa-shield-halved::before { content: "\f3ed"; }
+.fa-snowflake::before { content: "\f2dc"; }
+.fa-star::before { content: "\f005"; }
+.fa-tags::before { content: "\f02c"; }
+.fa-user-gear::before { content: "\f4fe"; }
+.fa-warehouse::before { content: "\f494"; }
+.fa-wind::before { content: "\f72e"; }
+.fa-xmark::before { content: "\f00d"; }
+.fa-facebook::before { content: "\f09a"; }
+.fa-whatsapp::before { content: "\f232"; }
+
 /* Mobile menu open/close transition */
 #mobile-menu {
   max-height: 0;

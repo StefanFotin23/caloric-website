@@ -6,6 +6,62 @@
 <title>{{ title }}</title>
 <meta name="description" content="{{ description }}">
 
+<!-- SEO pass (2026-08-30): canonical + Open Graph/Twitter + JSON-LD.
+     site.baseUrl is the single source of truth for the deployed URL (see
+     src/_data/site.js) — update it there once, not in 3 places, when
+     caloric.ro's DNS is recovered and wired up. -->
+<link rel="canonical" href="{{ site.baseUrl }}/{{ permalink }}">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.companyName }}">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ site.baseUrl }}/{{ permalink }}">
+<meta property="og:image" content="{{ site.baseUrl }}/{{ site.ogImage }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ site.baseUrl }}/{{ site.ogImage }}">
+
+<!-- JSON-LD LocalBusiness (HVACBusiness subtype) — name/address/phone/hours
+     for local-search rich results. Deliberately NO aggregateRating here:
+     Google's structured-data guidelines discourage a star-rating snippet
+     unless the reviews are genuinely shown on-page (not just copied from
+     the Google Maps listing) — risks the rich result being ignored, or
+     worse, a manual action for misleading markup. Revisit if real reviews
+     ever get displayed on the site itself. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "{{ site.companyName }}",
+  "image": "{{ site.baseUrl }}/{{ site.ogImage }}",
+  "url": "{{ site.baseUrl }}/",
+  "telephone": "{{ site.phone }}",
+  "email": "{{ site.email }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Bd. Dorobanților 466",
+    "addressLocality": "Brăila",
+    "postalCode": "810091",
+    "addressCountry": "RO"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ],
+  "sameAs": ["{{ site.facebookUrl }}"]
+}
+</script>
+
 <!-- color-scheme: light dark + real dark: styling (see tailwind.config.js
      and assets/css/site.css) tells browsers/OSes with dark mode (Android
      auto-dark, Samsung Internet's forced-dark, etc.) that this page has its
@@ -17,6 +73,10 @@
 <meta name="theme-color" content="#0f1a2e" media="(prefers-color-scheme: dark)">
 
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="{{ site.companyName }}">
+<meta name="apple-mobile-web-app-capable" content="yes">
 
 <!-- Compiled by Tailwind CLI at build time (npm run build) from src/css/input.css
      + tailwind.config.js — no more Play CDN, no more client-side compiling.
@@ -25,7 +85,9 @@
      IP goes to Google before consent (GDPR pass, 2026-08-30). -->
 <link rel="stylesheet" href="assets/css/site.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<!-- Font Awesome: self-hosted subset, compiled into site.css above
+     (2026-08-30, see the comment block in src/css/input.css) — the CDN
+     stylesheet link that used to be here is gone. -->
 </head>
 <body class="bg-white text-ice-950 dark:text-ice-50 antialiased dark:bg-ice-950">
 

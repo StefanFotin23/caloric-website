@@ -1,0 +1,29 @@
+{#
+  Coverage-area section (harta de acoperire, 2026-08-30) — shared across all
+  3 pages exactly like partials/contact.njk, placed right before it. The map
+  itself is a self-hosted SVG (assets/coverage-map.svg) loaded via <img>, not
+  inlined here — that keeps ~167KB of path data out of every page's HTML
+  (loaded and cached once instead of tripled across index/daikin/value) and
+  still gets automatic dark-mode colors, since the SVG carries its own
+  @media (prefers-color-scheme: dark) block that the browser evaluates
+  independently of this page's Tailwind dark: classes.
+
+  Deliberately no heading/subtitle/legend around it (Stefan, 2026-08-30 —
+  "imi place harta propriu zisa, dar nu am nevoie de textul de sus si de
+  legenda de jos") — just the map image, section padding for breathing room
+  against the sections above/below.
+
+  Tiers (see the SVG's own <desc> for the full county list):
+    Brăila         — sediul nostru (ember-500)
+    Zonă apropiată — intervenție rapidă (ice-400 fill in the map)
+    Zonă extinsă   — la cerere, pentru proiecte mai mari (ice-100 fill)
+#}
+<section id="acoperire" class="py-20 sm:py-28 bg-white dark:bg-ice-950 scroll-mt-32">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="reveal max-w-4xl mx-auto">
+      <img src="assets/coverage-map.svg"
+           alt="Harta zonei de acoperire Caloric: Brăila (sediu), zonă apropiată — Galați, Vrancea, Buzău, Vaslui, Ialomița, Tulcea, Ilfov, București, Călărași, Constanța — și zonă extinsă — Iași, Brașov, Argeș, Bacău, Dâmbovița, Prahova, Covasna, Neamț, Giurgiu."
+           class="w-full h-auto drop-shadow-xl" width="960" height="600" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>

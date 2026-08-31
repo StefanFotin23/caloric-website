@@ -94,13 +94,40 @@
           </div>
 
           <div>
-            <label for="city" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Oraș</label>
+            <label for="city" class="block text-sm font-semibold text-ice-900 dark:text-ice-200 mb-1.5">Județ</label>
+            {#
+              Reworked 2026-08-30 to match the coverage-map tiers (see
+              partials/coverage-map.njk) — Brăila stays the default, then
+              every județ we actually cover, grouped by zonă, instead of the
+              old 3-city + "Altul" list.
+            #}
             <select id="city" name="city" required
                     class="w-full px-4 py-3 rounded-lg border border-ice-200 dark:border-ice-700 focus:border-ice-500 dark:bg-ice-950/60 dark:text-ice-50 focus:ring-2 focus:ring-ice-200 dark:focus:ring-ice-700 outline-none transition-all bg-white">
               <option value="Braila" selected>Brăila</option>
-              <option value="Galati">Galați</option>
-              <option value="Tulcea">Tulcea</option>
-              <option value="Other">Altul</option>
+              <optgroup label="Zonă apropiată">
+                <option value="Galati">Galați</option>
+                <option value="Vrancea">Vrancea</option>
+                <option value="Buzau">Buzău</option>
+                <option value="Vaslui">Vaslui</option>
+                <option value="Ialomita">Ialomița</option>
+                <option value="Tulcea">Tulcea</option>
+                <option value="Ilfov">Ilfov</option>
+                <option value="Bucuresti">București</option>
+                <option value="Calarasi">Călărași</option>
+                <option value="Constanta">Constanța</option>
+              </optgroup>
+              <optgroup label="Zonă extinsă">
+                <option value="Iasi">Iași</option>
+                <option value="Brasov">Brașov</option>
+                <option value="Arges">Argeș</option>
+                <option value="Bacau">Bacău</option>
+                <option value="Dambovita">Dâmbovița</option>
+                <option value="Prahova">Prahova</option>
+                <option value="Covasna">Covasna</option>
+                <option value="Neamt">Neamț</option>
+                <option value="Giurgiu">Giurgiu</option>
+              </optgroup>
+              <option value="Other">Alt județ</option>
             </select>
           </div>
 
