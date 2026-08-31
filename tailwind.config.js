@@ -9,6 +9,7 @@ module.exports = {
   content: [
     "./src/**/*.njk",
     "./src/**/*.html",
+    "./src/assets/*.js",
   ],
   darkMode: "media", // follows the visitor's OS/browser prefers-color-scheme automatically
   theme: {
