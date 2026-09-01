@@ -230,7 +230,7 @@ body {
   display: flex;
   align-items: center;
   width: max-content;
-  animation: logo-marquee-scroll 81s linear infinite;
+  animation: logo-marquee-scroll 35s linear infinite;
 }
 .logo-marquee:hover .logo-marquee-track {
   animation-play-state: paused;
