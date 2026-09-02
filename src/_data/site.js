@@ -16,7 +16,7 @@ module.exports = {
   // robots.txt. Update this single value (no trailing slash) once caloric.ro
   // DNS is recovered and the custom domain is wired up in GitHub Pages —
   // everything downstream picks it up automatically.
-  baseUrl: "https://stefanfotin23.github.io/hvac-landing-site",
+  baseUrl: "https://caloric.ro",
   // Social-preview image (WhatsApp/Facebook link cards) — 1200x630, cropped
   // from the Perfera lifestyle photo (src/assets/daikin-perfera-w.jpg).
   ogImage: "assets/og-image.jpg",
