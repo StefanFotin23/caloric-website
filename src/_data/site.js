@@ -16,11 +16,18 @@ module.exports = {
   // robots.txt. Update this single value (no trailing slash) once caloric.ro
   // DNS is recovered and the custom domain is wired up in GitHub Pages —
   // everything downstream picks it up automatically.
-  baseUrl: "https://stefanfotin23.github.io/caloric-website",
+  baseUrl: "https://stefanfotin23.github.io/hvac-landing-site",
   // Social-preview image (WhatsApp/Facebook link cards) — 1200x630, cropped
   // from the Perfera lifestyle photo (src/assets/daikin-perfera-w.jpg).
   ogImage: "assets/og-image.jpg",
   companyName: "Caloric",
+  // Identificare juridică (Legea 365/2002, art. 5) — cerute de Stefan direct de pe
+  // listafirme.ro 2026-09-01, afișate în footer lângă Contact (decizia lui, nu
+  // ascunse pe o pagină separată).
+  legalName: "Caloric Serv SRL",
+  cui: "7045530",
+  regCom: "J09/116/1995",
+  euid: "ROONRC.J9/116/1995",
   phone: "+40 744 502 692",
   phoneHref: "tel:+40744502692",
   whatsappHref: "https://wa.me/40744502692",
