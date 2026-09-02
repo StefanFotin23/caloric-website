@@ -1,6 +1,6 @@
-# Caloric — site
+# Site HVAC — landing page
 
-Site Caloric HVAC (Brăila) — construit cu [Eleventy](https://www.11ty.dev/) (static site generator) + [Tailwind CSS](https://tailwindcss.com/) (compilat prin Tailwind CLI, nu CDN), deploy automat pe GitHub Pages prin GitHub Actions.
+Site de prezentare pentru o firmă de instalații HVAC — construit cu [Eleventy](https://www.11ty.dev/) (static site generator) + [Tailwind CSS](https://tailwindcss.com/) (compilat prin Tailwind CLI, nu CDN), deploy automat pe GitHub Pages prin GitHub Actions.
 
 ## De ce arată așa proiectul acum
 

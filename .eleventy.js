@@ -7,7 +7,7 @@ module.exports = function (eleventyConfig) {
   // through Eleventy's template engine.
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
-  // CNAME for GitHub Pages custom domain (caloric.ro) — must land at the
+  // CNAME for GitHub Pages custom domain — must land at the
   // root of the published _site/ artifact on every build, or GitHub Pages
   // silently drops the custom-domain setting on the next Actions deploy.
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });

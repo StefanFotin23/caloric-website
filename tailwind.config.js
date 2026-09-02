@@ -1,5 +1,5 @@
 /**
- * Tailwind CLI config — single source of truth for the Caloric color palette,
+ * Tailwind CLI config — single source of truth for the site color palette,
  * font, and shadow tokens (previously duplicated inline in 3 <script> blocks,
  * then centralized in assets/tailwind-config.js for the Play CDN; this file
  * is that same palette's new home now that Tailwind compiles at build time

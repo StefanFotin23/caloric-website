@@ -1,8 +1,8 @@
 {
-  "name": "caloric-website",
+  "name": "hvac-landing-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Site Caloric HVAC (Braila) — Eleventy + Tailwind CSS, deploy automat pe GitHub Pages via GitHub Actions.",
+  "description": "Site de prezentare pentru o firmă de instalații HVAC — Eleventy + Tailwind CSS, deploy automat pe GitHub Pages via GitHub Actions.",
   "scripts": {
     "build:css": "tailwindcss -i ./src/css/input.css -o ./src/assets/css/site.css --minify",
     "build:eleventy": "eleventy",
