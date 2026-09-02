@@ -142,6 +142,9 @@
 {% include "partials/consent-banner.njk" %}
 
 <script src="assets/site.js" defer></script>
-<script src="https://web3forms.com/client/script.js" async defer></script>
+<!-- Web3Forms client script (renders the hCaptcha widget) is lazy-loaded from
+     site.js once the visitor actually scrolls to #contact — see the
+     "hCaptcha lazy-load" block there — instead of on every single page
+     view regardless of whether they ever reach the form. -->
 </body>
 </html>

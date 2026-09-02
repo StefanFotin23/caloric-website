@@ -374,6 +374,47 @@
     }
   })();
 
+  // ---- hCaptcha lazy-load (GDPR pass, part 3 — 2026-09-02) -----------------
+  // The Web3Forms client script (which renders the hCaptcha widget into
+  // contact.njk's .h-captcha div) used to be a static <script> tag in
+  // base.njk, loading unconditionally on every single page view — even for
+  // visitors who never scroll anywhere near the contact form. It's genuinely
+  // necessary for that form to work (spam protection), but "necessary" only
+  // applies once the visitor is actually using the feature it protects.
+  // So: inject it the moment #contact enters the viewport, same lazy
+  // philosophy as the Maps/Facebook embed-gates above, just without a
+  // banner/button — there's nothing to ask consent for here, hCaptcha isn't
+  // optional the way an embed is, it just doesn't need to load before it's
+  // relevant. See privacy.njk §8 for the visitor-facing explanation.
+  var contactSection = document.getElementById('contact');
+  if (contactSection) {
+    var loadCaptchaScript = function () {
+      if (document.querySelector('script[data-lazy="hcaptcha"]')) return;
+      var s = document.createElement('script');
+      s.src = 'https://web3forms.com/client/script.js';
+      s.async = true;
+      s.defer = true;
+      s.dataset.lazy = 'hcaptcha';
+      document.body.appendChild(s);
+    };
+
+    if ('IntersectionObserver' in window) {
+      var captchaObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            loadCaptchaScript();
+            captchaObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '200px 0px' });
+      captchaObserver.observe(contactSection);
+    } else {
+      // No IntersectionObserver support — fall back to loading it upfront
+      // rather than risk the form never getting its spam protection.
+      loadCaptchaScript();
+    }
+  }
+
   // ---- Lead form: submit via fetch to Web3Forms ----------------------------
   // Shows an inline success/error message without leaving the page.
   var quoteForm = document.getElementById('quote-form');
