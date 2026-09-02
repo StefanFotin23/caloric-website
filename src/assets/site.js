@@ -15,6 +15,55 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // ---- Lead-qualification context (2026-09-01) ---------------------------
+  // Tracks what a visitor actually looked at (pages, product cards opened)
+  // in sessionStorage — cleared automatically when the tab closes, never
+  // sent anywhere on its own. Only when THEY submit the contact form does
+  // a human-readable summary ride along as one extra field in that same
+  // request (see contact.njk's hidden #engagement-field and
+  // privacy.njk §2). No separate database, no third-party analytics tool,
+  // no tracking across sessions/devices.
+  window.CaloricEngagement = (function () {
+    var STORAGE_KEY = 'caloric_engagement_v1';
+    var state;
+    try {
+      state = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || 'null');
+    } catch (e) {
+      state = null;
+    }
+    if (!state || typeof state !== 'object') {
+      state = { firstVisit: Date.now(), pages: [], products: [] };
+    }
+
+    var save = function () {
+      try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* private browsing etc. — degrade silently */ }
+    };
+
+    var pageLabel = document.body.getAttribute('data-page');
+    if (pageLabel && state.pages.indexOf(pageLabel) === -1) {
+      state.pages.push(pageLabel);
+    }
+    save();
+
+    var trackProduct = function (title) {
+      if (title && state.products.indexOf(title) === -1) {
+        state.products.push(title);
+        save();
+      }
+    };
+
+    var buildSummary = function () {
+      var parts = [];
+      parts.push('Pagini vizitate: ' + (state.pages.length ? state.pages.join(', ') : pageLabel || 'necunoscut'));
+      if (state.products.length) parts.push('Produse consultate: ' + state.products.join(', '));
+      var minutes = Math.max(1, Math.round((Date.now() - state.firstVisit) / 60000));
+      parts.push('Timp aproximativ pe site: ' + minutes + ' min');
+      return parts.join(' | ');
+    };
+
+    return { trackProduct: trackProduct, buildSummary: buildSummary };
+  })();
+
   // ---- Sticky nav shadow on scroll ---------------------------------------
   var navbar = document.getElementById('navbar');
   if (navbar) {
@@ -182,6 +231,7 @@
           + (img.tag ? '<span class="absolute top-2 left-2 bg-ember-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow">' + img.tag + '</span>' : '')
           + '</div>';
       }).join('');
+      if (window.CaloricEngagement) window.CaloricEngagement.trackProduct(card.dataset.modalTitle || '');
       modalLastFocused = document.activeElement;
       productModal.classList.remove('hidden'); productModal.classList.add('flex');
       productModal.setAttribute('aria-hidden', 'false');
@@ -344,6 +394,11 @@
         formResult.textContent = 'Te rugăm să confirmi căsuța de securitate (captcha) înainte de a trimite.';
         formResult.className = 'text-sm font-medium text-center text-red-600';
         return;
+      }
+
+      var engagementField = quoteForm.querySelector('[name="context_navigare"]');
+      if (engagementField && window.CaloricEngagement) {
+        engagementField.value = window.CaloricEngagement.buildSummary();
       }
 
       submitBtn.disabled = true;

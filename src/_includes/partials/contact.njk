@@ -80,6 +80,16 @@
           <input type="hidden" name="access_key" value="{{ site.web3formsAccessKey }}">
           <input type="hidden" name="subject" value="{{ formSubject }}">
           <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+          {#
+            Context de navigare (calificare lead, 2026-09-01) — populat de
+            site.js (CaloricEngagement.buildSummary()) chiar înainte de
+            submit, din ce a văzut vizitatorul în sesiunea curentă (pagini,
+            produse deschise, timp aproximativ). Ajunge ca rând normal în
+            email-ul Web3Forms — nu e stocat nicăieri altundeva, nu
+            părăsește browserul decât o dată cu restul formularului. Vezi
+            privacy.njk §2 pentru divulgare.
+          #}
+          <input type="hidden" name="context_navigare" id="engagement-field" value="">
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
