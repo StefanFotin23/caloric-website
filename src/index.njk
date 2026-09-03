@@ -95,11 +95,13 @@ formSubject: "Cerere ofertă nouă - Caloric"
         on grid-cols-3 and leave 1-2 empty column-widths of dead space to
         the right on tablet/desktop (Ventilație: 1 card; Refrigerare
         Comercială & Industrial: 2 cards). Capping cols to the card count
-        and centering the narrower rows keeps card width consistent with
-        full 3-card rows instead of stretching a lone card full-width.
+        keeps card width consistent with full 3-card rows instead of
+        stretching a lone card full-width. Left-aligned, not centered
+        (2026-09-03, owner call) — a narrower row just starts at the left
+        margin like everything else on the page, no mx-auto.
       #}
       {% set cardCount = category.cards.length %}
-      <div class="grid grid-cols-1 {{ 'sm:grid-cols-2' if cardCount >= 2 }} {{ 'lg:grid-cols-3' if cardCount >= 3 }} gap-6{{ ' max-w-sm mx-auto' if cardCount == 1 }}{{ ' max-w-[820px] mx-auto' if cardCount == 2 }}">
+      <div class="grid grid-cols-1 {{ 'sm:grid-cols-2' if cardCount >= 2 }} {{ 'lg:grid-cols-3' if cardCount >= 3 }} gap-6{{ ' max-w-sm' if cardCount == 1 }}{{ ' max-w-[820px]' if cardCount == 2 }}">
         {% for card in category.cards %}
         {{ m.productCard(card, loop.index0 * 40) }}
         {% endfor %}
