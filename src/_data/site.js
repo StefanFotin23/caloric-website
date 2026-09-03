@@ -37,6 +37,15 @@ module.exports = {
   hours: {
     weekdays: "Luni - Vineri: 08:00 - 17:00",
     weekend: "Sâmbătă - Duminică: Închis",
+    // Structured schedule (2026-09-03) — single source of truth for the
+    // live Deschis/Închis indicator in nav.njk + contact.njk (task:
+    // Stefan wants a "Program" shortcut in nav that shows green/red status).
+    // Client JS reads these via data-* attributes on <body> instead of
+    // hardcoding the schedule a second time — change only these three
+    // fields if the program ever changes, and the indicator updates itself.
+    openDays: [1, 2, 3, 4, 5], // ISO weekday: 1=Luni ... 7=Duminică
+    openStart: "08:00",
+    openEnd: "17:00",
   },
   // Județele acoperite (zonă apropiată + zonă extinsă, vezi coverage-map.njk)
   // — folosite atât în JSON-LD (areaServed) cât și, din 2026-08-31, ca text

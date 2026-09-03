@@ -476,4 +476,62 @@
         });
     });
   }
+
+  // ---- Live "Program: Deschis/Închis" indicator (2026-09-03) -------------
+  // Reads the schedule from data-open-* attributes on <body> (single
+  // source of truth: src/_data/site.js hours.openDays/openStart/openEnd)
+  // instead of duplicating the hours here. Computes against Romania time
+  // (Europe/Bucharest) via Intl, not the visitor's local clock, so it stays
+  // correct for someone browsing from abroad. Re-checked every 60s so a
+  // tab left open past closing time doesn't keep showing "Deschis".
+  (function () {
+    var body = document.body;
+    var openDaysAttr = body.getAttribute('data-open-days');
+    var openStartAttr = body.getAttribute('data-open-start');
+    var openEndAttr = body.getAttribute('data-open-end');
+    if (!openDaysAttr || !openStartAttr || !openEndAttr) return;
+
+    var yesEls = document.querySelectorAll('.js-open-yes');
+    var noEls = document.querySelectorAll('.js-open-no');
+    if (!yesEls.length && !noEls.length) return;
+
+    var openDays = openDaysAttr.split(',').map(Number);
+    var toMinutes = function (hhmm) {
+      var parts = hhmm.split(':').map(Number);
+      return parts[0] * 60 + parts[1];
+    };
+    var openStart = toMinutes(openStartAttr);
+    var openEnd = toMinutes(openEndAttr);
+    var weekdayMap = { Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Sun: 7 };
+
+    var isOpenNow = function () {
+      var parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Bucharest',
+        weekday: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23',
+      }).formatToParts(new Date());
+
+      var weekday, hour, minute;
+      parts.forEach(function (p) {
+        if (p.type === 'weekday') weekday = weekdayMap[p.value];
+        if (p.type === 'hour') hour = Number(p.value);
+        if (p.type === 'minute') minute = Number(p.value);
+      });
+
+      if (openDays.indexOf(weekday) === -1) return false;
+      var nowMinutes = hour * 60 + minute;
+      return nowMinutes >= openStart && nowMinutes < openEnd;
+    };
+
+    var render = function () {
+      var open = isOpenNow();
+      yesEls.forEach(function (el) { el.classList.toggle('hidden', !open); });
+      noEls.forEach(function (el) { el.classList.toggle('hidden', open); });
+    };
+
+    render();
+    setInterval(render, 60000);
+  })();
 })();
