@@ -127,7 +127,7 @@
      Inter is self-hosted inside this file too (see src/css/input.css) —
      no more fonts.googleapis.com/fonts.gstatic.com request, so no visitor
      IP goes to Google before consent (GDPR pass, 2026-08-30). -->
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v={{ site.buildTimestamp }}">
 
 <!-- Font Awesome: self-hosted subset, compiled into site.css above
      (2026-08-30, see the comment block in src/css/input.css) — the CDN
@@ -148,7 +148,7 @@
 {% include "partials/product-modal.njk" %}
 {% if not hideConsentBanner %}{% include "partials/consent-banner.njk" %}{% endif %}
 
-<script src="assets/site.js" defer></script>
+<script src="assets/site.js?v={{ site.buildTimestamp }}" defer></script>
 <!-- Web3Forms client script (renders the hCaptcha widget) is lazy-loaded from
      site.js once the visitor actually scrolls to #contact — see the
      "hCaptcha lazy-load" block there — instead of on every single page

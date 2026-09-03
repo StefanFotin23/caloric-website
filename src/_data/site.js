@@ -11,6 +11,15 @@ module.exports = {
   // not from a collection) — good enough to tell crawlers "this was built
   // recently", refreshes automatically on every `npm run build`.
   buildDate: new Date().toISOString().slice(0, 10),
+  // Cache-busting token (2026-09-03) — appended as ?v=... to the site.css/
+  // site.js <link>/<script> tags in base.njk. buildDate above only changes
+  // once per DAY, so two deploys on the same day (like today) would share
+  // one value and NOT bust a CDN/browser cache between them — which is
+  // exactly what happened: Stefan couldn't see the new Program indicator
+  // because Cloudflare (now in Proxied mode) kept serving a stale cached
+  // assets/site.js from an earlier deploy today. Date.now() is unique
+  // per `npm run build` run, so every deploy forces a fresh fetch.
+  buildTimestamp: Date.now(),
   // Canonical URL of the deployed site — the ONE place this is defined.
   // Used by canonical <link>, Open Graph/Twitter og:url, and sitemap.xml/
   // robots.txt. Update this single value (no trailing slash) once caloric.ro
