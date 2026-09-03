@@ -37,34 +37,23 @@
 
       {#
         SAL/SOL — informare obligatorie a consumatorilor (2026-09-03, la
-        cererea lui Stefan, care a văzut aceste bannere pe alte site-uri).
-        Bază legală: OG 38/2015 (SAL — Soluționarea Alternativă a
-        Litigiilor, ANPC) + Regulamentul (UE) nr. 524/2013 (SOL/ODR —
-        Soluționarea Online a Litigiilor, platforma Comisiei Europene).
-        Link-urile țintă sunt cele oficiale curente (verificate 2026-09-03):
-        anpc.ro/ce-este-sal/ și ec.europa.eu/consumers/odr.
-
-        Nu am putut prelua siglele oficiale grafice (ex. cele folosite de
-        alte site-uri, cu logo ANPC rotund) — atât containerul cloud, cât
-        și shell-ul de pe calculatorul tău nu au acces de rețea către
-        github.io/raw.githubusercontent.com/jsdelivr.net, iar WebFetch
-        refuză să livreze conținutul unui .svg ca text brut (îl tratează
-        ca imagine). Am făcut deci variantă text, în stilul vizual al
-        site-ului, cu aceleași linkuri legale. Dacă vrei exact bannerele
-        grafice din screenshot, trimite-mi cele 2 fișiere imagine (poți
-        da click dreapta → Salvează imaginea pe site-ul unde le-ai văzut)
-        și le pun în loc.
+        cererea lui Stefan). Bază legală: OG 38/2015 (SAL — Soluționarea
+        Alternativă a Litigiilor, ANPC) + Regulamentul (UE) nr. 524/2013
+        (SOL/ODR — Soluționarea Online a Litigiilor, platforma Comisiei
+        Europene). Bannerele grafice sunt aceleași folosite de
+        elmedclinic.ro (sal-c.png / sol-c.png), capturate direct din
+        browser la rezoluție bună și recomprimate (paletă redusă, ~3.5x
+        mai mic) fără pierdere vizibilă — varianta text de mai devreme nu
+        arăta suficient de profesionist. Link-urile țintă sunt cele
+        oficiale curente (verificate 2026-09-03): anpc.ro/ce-este-sal/ și
+        ec.europa.eu/consumers/odr.
       #}
-      <div class="mt-4 flex flex-wrap gap-2">
-        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener nofollow"
-           class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[11px] font-medium text-ice-100/70 hover:text-white hover:bg-white/10 transition-colors">
-          <i aria-hidden="true" class="fa-solid fa-shield-halved text-ice-400"></i>
-          Soluționarea Alternativă a Litigiilor (SAL)
+      <div class="mt-4 flex flex-wrap items-center gap-3">
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener nofollow">
+          <img src="assets/anpc-sal.png" alt="Soluționarea Alternativă a Litigiilor (SAL) — ANPC" class="h-11 w-auto rounded-md">
         </a>
-        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener nofollow"
-           class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[11px] font-medium text-ice-100/70 hover:text-white hover:bg-white/10 transition-colors">
-          <i aria-hidden="true" class="fa-solid fa-shield-halved text-ice-400"></i>
-          Soluționarea Online a Litigiilor (SOL)
+        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener nofollow">
+          <img src="assets/anpc-sol.png" alt="Soluționarea Online a Litigiilor (SOL)" class="h-11 w-auto rounded-md">
         </a>
       </div>
     </div>
