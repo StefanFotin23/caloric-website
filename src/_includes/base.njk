@@ -139,7 +139,7 @@
 {% include "partials/footer.njk" %}
 {% include "partials/whatsapp-float.njk" %}
 {% include "partials/product-modal.njk" %}
-{% include "partials/consent-banner.njk" %}
+{% if not hideConsentBanner %}{% include "partials/consent-banner.njk" %}{% endif %}
 
 <script src="assets/site.js" defer></script>
 <!-- Web3Forms client script (renders the hCaptcha widget) is lazy-loaded from

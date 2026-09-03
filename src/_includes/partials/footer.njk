@@ -45,7 +45,6 @@
         <li><a href="{{ prefix }}#portfolio" class="hover:text-white transition-colors">Portofoliu</a></li>
         <li><a href="{{ prefix }}#acoperire" class="hover:text-white transition-colors">Zonă de Acoperire</a></li>
         <li><a href="{{ prefix }}#contact" class="hover:text-white transition-colors">Contact</a></li>
-        <li><a href="privacy.html" class="hover:text-white transition-colors">Politica de Confidențialitate</a></li>
       </ul>
     </div>
 
@@ -63,9 +62,17 @@
     </div>
   </div>
 
+  {#
+    Politica de Confidențialitate lives here now, not in the Linkuri Rapide
+    column above (moved 2026-09-03, owner call) — it's legally required to
+    be reachable from every page, but shouldn't read as equal-weight main
+    navigation next to Servicii/Parteneri/Portofoliu/Contact. The small
+    legal-bar-at-the-very-bottom placement is the common convention for
+    exactly this reason.
+  #}
   <div class="border-t border-white/10 py-6">
-    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-ice-100/60">
-      <p>&copy; <span id="year"></span> {{ site.companyName }}. Toate drepturile rezervate.</p>
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ice-100/50">
+      <p>&copy; <span id="year"></span> {{ site.companyName }}. Toate drepturile rezervate. &middot; <a href="privacy.html" class="hover:text-ice-100/90 hover:underline transition-colors">Politica de Confidențialitate</a></p>
       <p>Brăila, România</p>
     </div>
   </div>
