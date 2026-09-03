@@ -181,41 +181,78 @@ body {
   }
 }
 
-/* Home hero background photo + gradient overlay */
+/* Home/Daikin/Value hero background photos + gradient overlays. Each ships
+   a WebP alongside the original JPG (SEO/perf pass, 2026-09-03 — these are
+   the LCP element on every page, so their weight directly affects Core Web
+   Vitals). image-set() layers the WebP on top of the JPG progressively:
+   a browser that doesn't understand -webkit-image-set()/image-set() simply
+   treats that whole declaration as invalid and keeps the plain url(...)
+   line above it — no @supports needed, no browser is ever left without a
+   hero image. */
 .hero-bg {
-  background-image: linear-gradient(
-      180deg,
-      rgba(15, 26, 46, 0.75) 0%,
-      rgba(15, 26, 46, 0.55) 45%,
-      rgba(15, 26, 46, 0.85) 100%
-    ),
-    url("../assets/hero-braila-service.jpg");
+  --hero-gradient: linear-gradient(
+    180deg,
+    rgba(15, 26, 46, 0.75) 0%,
+    rgba(15, 26, 46, 0.55) 45%,
+    rgba(15, 26, 46, 0.85) 100%
+  );
+  background-image: var(--hero-gradient), url("../assets/hero-braila-service.jpg");
+  background-image: var(--hero-gradient),
+    -webkit-image-set(
+      url("../assets/hero-braila-service.webp") type("image/webp") 1x,
+      url("../assets/hero-braila-service.jpg") type("image/jpeg") 1x
+    );
+  background-image: var(--hero-gradient),
+    image-set(
+      url("../assets/hero-braila-service.webp") type("image/webp") 1x,
+      url("../assets/hero-braila-service.jpg") type("image/jpeg") 1x
+    );
   background-size: cover;
   background-position: center;
 }
 
 /* Daikin page hero background */
 .daikin-hero {
-  background-image: linear-gradient(
-      180deg,
-      rgba(15, 26, 46, 0.8) 0%,
-      rgba(15, 42, 80, 0.55) 45%,
-      rgba(15, 26, 46, 0.88) 100%
-    ),
-    url("../assets/hero-daikin.jpg");
+  --hero-gradient: linear-gradient(
+    180deg,
+    rgba(15, 26, 46, 0.8) 0%,
+    rgba(15, 42, 80, 0.55) 45%,
+    rgba(15, 26, 46, 0.88) 100%
+  );
+  background-image: var(--hero-gradient), url("../assets/hero-daikin.jpg");
+  background-image: var(--hero-gradient),
+    -webkit-image-set(
+      url("../assets/hero-daikin.webp") type("image/webp") 1x,
+      url("../assets/hero-daikin.jpg") type("image/jpeg") 1x
+    );
+  background-image: var(--hero-gradient),
+    image-set(
+      url("../assets/hero-daikin.webp") type("image/webp") 1x,
+      url("../assets/hero-daikin.jpg") type("image/jpeg") 1x
+    );
   background-size: cover;
   background-position: center;
 }
 
 /* Value page hero background */
 .value-hero {
-  background-image: linear-gradient(
-      180deg,
-      rgba(15, 26, 46, 0.82) 0%,
-      rgba(124, 42, 10, 0.55) 45%,
-      rgba(15, 26, 46, 0.88) 100%
-    ),
-    url("../assets/hero-value.jpg");
+  --hero-gradient: linear-gradient(
+    180deg,
+    rgba(15, 26, 46, 0.82) 0%,
+    rgba(124, 42, 10, 0.55) 45%,
+    rgba(15, 26, 46, 0.88) 100%
+  );
+  background-image: var(--hero-gradient), url("../assets/hero-value.jpg");
+  background-image: var(--hero-gradient),
+    -webkit-image-set(
+      url("../assets/hero-value.webp") type("image/webp") 1x,
+      url("../assets/hero-value.jpg") type("image/jpeg") 1x
+    );
+  background-image: var(--hero-gradient),
+    image-set(
+      url("../assets/hero-value.webp") type("image/webp") 1x,
+      url("../assets/hero-value.jpg") type("image/jpeg") 1x
+    );
   background-size: cover;
   background-position: center;
 }

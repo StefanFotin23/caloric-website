@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ title }}</title>
 <meta name="description" content="{{ description }}">
+{% if heroImage %}
+<!-- Preload the hero image (LCP element on this page, perf pass 2026-09-03)
+     — it's a CSS background-image, which the browser's preload scanner
+     can't discover until it has parsed and applied the stylesheet; this
+     hint lets it start the fetch immediately, in parallel with CSS/JS. -->
+<link rel="preload" as="image" href="{{ heroImage }}" fetchpriority="high">
+{% endif %}
 
 <!-- SEO pass (2026-08-30): canonical + Open Graph/Twitter + JSON-LD.
      site.baseUrl is the single source of truth for the deployed URL (see
