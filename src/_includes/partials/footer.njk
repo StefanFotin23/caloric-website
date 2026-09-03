@@ -34,6 +34,39 @@
       </ul>
       <p class="mt-4 text-xs text-ice-200/70 leading-relaxed">{{ site.legalName }} &middot; CUI {{ site.cui }} &middot; Reg. Com. {{ site.regCom }}</p>
       <p class="mt-1.5 text-xs text-ice-200/70 leading-relaxed">Personal tehnic atestat F-Gas, conform Regulamentului (UE) nr. 517/2014, autorizat AGFR.</p>
+
+      {#
+        SAL/SOL — informare obligatorie a consumatorilor (2026-09-03, la
+        cererea lui Stefan, care a văzut aceste bannere pe alte site-uri).
+        Bază legală: OG 38/2015 (SAL — Soluționarea Alternativă a
+        Litigiilor, ANPC) + Regulamentul (UE) nr. 524/2013 (SOL/ODR —
+        Soluționarea Online a Litigiilor, platforma Comisiei Europene).
+        Link-urile țintă sunt cele oficiale curente (verificate 2026-09-03):
+        anpc.ro/ce-este-sal/ și ec.europa.eu/consumers/odr.
+
+        Nu am putut prelua siglele oficiale grafice (ex. cele folosite de
+        alte site-uri, cu logo ANPC rotund) — atât containerul cloud, cât
+        și shell-ul de pe calculatorul tău nu au acces de rețea către
+        github.io/raw.githubusercontent.com/jsdelivr.net, iar WebFetch
+        refuză să livreze conținutul unui .svg ca text brut (îl tratează
+        ca imagine). Am făcut deci variantă text, în stilul vizual al
+        site-ului, cu aceleași linkuri legale. Dacă vrei exact bannerele
+        grafice din screenshot, trimite-mi cele 2 fișiere imagine (poți
+        da click dreapta → Salvează imaginea pe site-ul unde le-ai văzut)
+        și le pun în loc.
+      #}
+      <div class="mt-4 flex flex-wrap gap-2">
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener nofollow"
+           class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[11px] font-medium text-ice-100/70 hover:text-white hover:bg-white/10 transition-colors">
+          <i aria-hidden="true" class="fa-solid fa-shield-halved text-ice-400"></i>
+          Soluționarea Alternativă a Litigiilor (SAL)
+        </a>
+        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener nofollow"
+           class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[11px] font-medium text-ice-100/70 hover:text-white hover:bg-white/10 transition-colors">
+          <i aria-hidden="true" class="fa-solid fa-shield-halved text-ice-400"></i>
+          Soluționarea Online a Litigiilor (SOL)
+        </a>
+      </div>
     </div>
 
     <!-- Quick links -->
